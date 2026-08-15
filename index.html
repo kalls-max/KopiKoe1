@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KopiKoe - Homepage</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <section class="hero-slider" id="home">
+    <div class="slides-container" id="slides">
+      
+      <!-- Slide 1 -->
+      <div class="slide slide-1 active">
+        <a href="deskripsi-produk-1.html" class="hero-image-link">
+          <img src="Photo/download__20_-removebg-preview.png" alt="Produk Hero 1" class="hero-product-img">
+        </a>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slide slide-2">
+        <a href="deskripsi-produk-2.html" class="hero-image-link">
+          <img src="hero-produk-2.png" alt="Produk Hero 2" class="hero-product-img">
+        </a>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="slide slide-3">
+        <a href="deskripsi-produk-3.html" class="hero-image-link">
+          <img src="hero-produk-3.png" alt="Produk Hero 3" class="hero-product-img">
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Arrow Navigation -->
+    <button class="slider-arrow prev" id="prevSlide" aria-label="Previous Slide">&lsaquo;</button>
+    <button class="slider-arrow next" id="nextSlide" aria-label="Next Slide">&rsaquo;</button>
+  </section>
+
+  <!-- ==========================================
+       SIDE CART DRAWER (BARU DITAMBAHKAN)
+       ========================================== -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="side-cart-drawer" class="side-cart-drawer">
+    
+    <div class="cart-drawer-header">
+      <h3>Keranjang Kamu (<span id="drawer-cart-count">0</span>)</h3>
+      <button id="close-drawer-btn" class="close-drawer-btn">&times;</button>
+    </div>
+
+    <div class="cart-drawer-body" id="drawer-cart-items">
+      <p style="color:#777; text-align:center; margin-top:20px;">Keranjang masih kosong.</p>
+    </div>
+
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="drawer-subtotal">Rp 0</span>
+      </div>
+      <p class="cart-tax-note">Pajak dan ongkos kirim dihitung saat checkout.</p>
+      <button onclick="window.location.href='payment.html'" class="btn-checkout-drawer">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+<!-- FLOATING NAVBAR / BOTTOM BAR -->
+<footer class="bottom-bar-wrapper">
+  <nav class="bottom-bar-pill" id="bottomBar">
+    
+    <!-- 1. LOGO BRAND -->
+    <div class="bar-section bar-logo">
+      <a href="#home">
+        <img src="Photo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
+      </a>
+    </div>
+
+    <!-- 2. MENU NAVIGASI -->
+    <div class="bar-section bar-menu">
+      <a href="#home" class="active">Beranda</a>
+      <a href="shop.html">Toko</a>
+      <a href="about.html">Tentangku</a>
+    </div>
+
+    <!-- 3. IKON AKSI (KERANJANG + BINTANG) -->
+    <div class="bar-section bar-icons">
+      <!-- Tombol Keranjang Belanja & Badge Count -->
+      <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+
+      <!-- Objek Bintang Interaktif -->
+      <div class="star-object" title="Bintang Interaktif">
+        <span class="star-icon">&#9733;</span>
+      </div>
+    </div>
+
+  </nav>
+</footer>
+
+  <section class="section-kopinya" id="kopinya">
+    <div class="badge-bestseller-img-wrapper">
+      <img src="Photo/503347695895073658.jpeg" alt="Badge Best Seller" class="badge-bestseller-img">
+    </div>
+    
+    <h2 class="section-title">KopiNya</h2>
+    
+    <div class="kopinya-container">
+      <div class="kopinya-left">
+        <p class="kopinya-desc">Gamau pusing? pilih ini aja</p>
+        <button class="syarat-btn">Gaskeun</button>
+      </div>
+
+      <div class="kopinya-right">
+        <div class="cards-wrapper">
+        
+          <div class="kopi-card">
+            <a href="deskripsi-produk-1.html" class="product-link">
+              <img src="Photo/Momo.jpeg" alt="KOPIKOK" class="card-img-real">
+              <h3>KopiKok</h3>
+            </a>
+          </div>
+
+          <div class="kopi-card">
+            <a href="deskripsi-produk-2.html" class="product-link">
+              <img src="Photo/WhatsApp Image 2026-08-12 at 20.17.02.jpeg" alt="KOPIMEN" class="card-img-real">
+              <h3>KOPIMEN</h3>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SECTION KUIS KOPIKOK -->
+  <section class="section-kopimoe" id="kopimoe">
+    <h2 class="section-title">KopiMoe</h2>
+    <p class="quiz-intro">Jawab 4 pertanyaan di bawah ini untuk menemukan biji kopi yang paling cocok dengan seleramu!</p>
+
+    <div class="quiz-wrapper">
+      <div class="quiz-card-stack" id="quizStack">
+
+        <!-- Pertanyaan 1: Pengalaman / Kebiasaan Minum Kopi -->
+        <div class="quiz-card active" data-step="1">
+          <span class="step-badge">1 / 4</span>
+          <h3 class="quiz-question">Gimana pengalaman kamu dalam dunia kopi?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" data-category="experience" data-answer="pemula">Pemula (Suka kopi manis / halus)</button>
+            <button class="quiz-opt-btn" data-category="experience" data-answer="penikmat">Penikmat Harian (Suka kopi hitam bersahaja)</button>
+            <button class="quiz-opt-btn" data-category="experience" data-answer="expert">Pemain Lama / Barista (Suka eksplorasi rasa unik)</button>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 2: Keasaman / Rasa Utama -->
+        <div class="quiz-card" data-step="2">
+          <span class="step-badge">2 / 4</span>
+          <h3 class="quiz-question">Profil rasa seperti apa yang ingin kamu rasakan?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" data-category="acidity" data-answer="low">Pahit Mantap & Rendah Asam (Aman di Lambung)</button>
+            <button class="quiz-opt-btn" data-category="acidity" data-answer="high">Asam Segar Buah-Buahan (Bright & Citrusy)</button>
+            <button class="quiz-opt-btn" data-category="acidity" data-answer="medium">Manis Soft & Balance (Karamel / Cokelat)</button>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 3: Body / Ketebalan Kopi -->
+        <div class="quiz-card" data-step="3">
+          <span class="step-badge">3 / 4</span>
+          <h3 class="quiz-question">Bagaimana tekstur / ketebalan (body) kopi kesukaanmu?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" data-category="body" data-answer="full">Tebal, Pekat & Bold (Kental pas diteguk)</button>
+            <button class="quiz-opt-btn" data-category="body" data-answer="medium">Sedang & Smooth (Ringan & Enteng di Tenggorokan)</button>
+          </div>
+        </div>
+
+        <!-- Pertanyaan 4: Sentuhan Aroma Unik -->
+        <div class="quiz-card" data-step="4">
+          <span class="step-badge">4 / 4</span>
+          <h3 class="quiz-question">Sentuhan aroma / aftertaste apa yang paling memikatmu?</h3>
+          <div class="quiz-options">
+            <button class="quiz-opt-btn" data-category="flavor" data-answer="spicy">Rempah Warm Spices & Earthy</button>
+            <button class="quiz-opt-btn" data-category="flavor" data-answer="chocolate">Cokelat, Kacang (Nutty) & Vanila</button>
+            <button class="quiz-opt-btn" data-category="flavor" data-answer="unique">Aroma Tembakau, Floral, atau Buah Matang</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section-ensi" id="ensi">
+    <div class="ensi-left">
+      <div class="interactive-area">
+        <div class="beans-group-random">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Arabika" class="bean-img" style="top: 10%; left: 15%;" 
+               data-title="Kopi Arabika" 
+               data-desc="Memiliki cita rasa yang kaya, cenderung asam, dan aroma harum."
+               data-img="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHdYkmceeKyjtQLiHhrRZHEec5dS5-G5c49a-p5GeivQ&s=10">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Robusta" class="bean-img" style="top: 25%; left: 65%;" 
+               data-title="Kopi Robusta" 
+               data-desc="Rasa lebih pahit, bodi tebal, dan kandungan kafein tinggi."
+               data-img="detail-robusta.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Liberika" class="bean-img" style="top: 45%; left: 20%;" 
+               data-title="Kopi Liberika" 
+               data-desc="Aroma khas nangka dengan perpaduan rasa pahit dan buah yang unik."
+               data-img="detail-liberika.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Excelsa" class="bean-img" style="top: 60%; left: 75%;" 
+               data-title="Kopi Excelsa" 
+               data-desc="Sensasi rasa fruity, asam, dan gurih secara bersamaan."
+               data-img="detail-excelsa.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Natural" class="bean-img" style="top: 75%; left: 30%;" 
+               data-title="Natural Process" 
+               data-desc="Pengeringan bersama buahnya menghasilkan rasa manis buah yang kuat."
+               data-img="detail-natural.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Full Wash" class="bean-img" style="top: 15%; left: 45%;" 
+               data-title="Full Wash Process" 
+               data-desc="Menghasilkan karakter kopi yang sangat bersih (clean cup)."
+               data-img="detail-wash.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Honey" class="bean-img" style="top: 35%; left: 80%;" 
+               data-title="Honey Process" 
+               data-desc="Keseimbangan rasa manis dan body yang pas."
+               data-img="detail-honey.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Light Roast" class="bean-img" style="top: 80%; left: 60%;" 
+               data-title="Light Roast" 
+               data-desc="Keasaman tinggi dan karakter asli biji menonjol."
+               data-img="detail-light.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Medium Roast" class="bean-img" style="top: 50%; left: 45%;" 
+               data-title="Medium Roast" 
+               data-desc="Keseimbangan antara asam, manis, dan aroma sangrai."
+               data-img="detail-medium.png">
+
+          <img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="Dark Roast" class="bean-img" style="top: 30%; left: 10%;" 
+               data-title="Dark Roast" 
+               data-desc="Pahit dominan, terasa smokey, dan rendah asam."
+               data-img="detail-dark.png">
+        </div>
+        <p class="interact-hint">* arahkan mouse & klik biji kopi</p>
+      </div>
+    </div>
+
+    <div class="ensi-right">
+      <h2 class="ensi-title">Ensi Kopidia</h2>
+      <div class="ensi-card">
+        <div class="ensi-card-header">
+          <div class="ensi-card-text">
+            <h3 id="ensiBeanTitle">Pilih Biji Kopi</h3>
+            <p id="ensiBeanDesc">Klik salah satu biji kopi di sebelah kiri untuk melihat penjelasannya secara lengkap di sini.</p>
+          </div>
+          
+          <img src="Photo/Momo.jpeg" alt="Detail Kopi" class="ensi-img" id="ensiBeanImg">
+        </div>
+        <div class="ensi-stats">
+          <p>Karakteristik :</p>
+          <div class="stat-line">nyrnrynryrnryryrnyrnyrnynyryrynryyr</div>
+          <div class="stat-line">nryrrrrrrrrrrnryrnynryynrynrynrnyryny</div>
+          <div class="stat-line">jesi kontol jesi kontol</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE / RUNNING TEXT (PISAH DARI FOOTER UTAMA) -->
+<div class="marquee-footer">
+  <div class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+    </div>
+    <div class="marquee-content" aria-hidden="true">
+      <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER UTAMA -->
+<footer class="site-footer">
+  <div class="footer-container">
+    
+    <!-- Kolom 1: Brand / Description -->
+    <div class="footer-col footer-brand">
+      <h3 class="footer-title">KopiKOE</h3>
+      <p class="footer-desc">Menyajikan racikan biji kopi pilihan nusantara dengan cita rasa autentik dan kualitas terbaik.</p>
+    </div>
+
+    <!-- Kolom 2: Navigasi Cepat -->
+    <div class="footer-col footer-links">
+      <h4 class="footer-heading">Navigasi</h4>
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="#kopinya">Toko Kopi</a></li>
+        <li><a href="about.html">Tentang Kami</a></li>
+        <li><a href="quis.html">Kuis KopiMoe</a></li>
+      </ul>
+    </div>
+
+    <!-- Kolom 3: Informasi Kontak -->
+    <div class="footer-col footer-contact">
+      <h4 class="footer-heading">Hubungi Kami</h4>
+      <ul class="contact-list">
+        <li>
+          <span class="icon">&#9993;</span>
+          <a href="mailto:halo@kopikoe.com">halo@kopikoe.com</a>
+        </li>
+        <li>
+          <span class="icon">&#128222;</span>
+          <a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a>
+        </li>
+        <li>
+          <span class="icon">&#128205;</span>
+          <span>Jakarta, Indonesia</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Kolom 4: Media Sosial -->
+    <div class="footer-col footer-social">
+      <h4 class="footer-heading">Ikuti Kami</h4>
+      <div class="social-icons">
+        <a href="#" class="social-btn" title="Instagram">IG</a>
+        <a href="#" class="social-btn" title="TikTok">TK</a>
+        <a href="#" class="social-btn" title="WhatsApp">WA</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Copyright Bawah -->
+  <div class="footer-bottom">
+    <p>&copy; 2026 KopiKOE. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
