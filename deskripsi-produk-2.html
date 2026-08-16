@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOPIMEN - Detail Produk | KopiKOE</title>
+  <link rel="stylesheet" href="produk-detail.css">
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- SIDE CART DRAWER -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="side-cart-drawer" class="side-cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Keranjang Kamu (<span id="drawer-cart-count">0</span>)</h3>
+      <button id="close-drawer-btn" class="close-drawer-btn">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="drawer-cart-items">
+      <p style="color:#777; text-align:center; margin-top:20px;">Keranjang masih kosong.</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="drawer-subtotal">Rp 0</span>
+      </div>
+      <p class="cart-tax-note">Pajak dan ongkos kirim dihitung saat checkout.</p>
+      <button onclick="window.location.href='payment.html'" class="btn-checkout-drawer">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- FLOATING NAVBAR -->
+  <footer class="bottom-bar-wrapper">
+    <nav class="bottom-bar-pill" id="bottomBar">
+      <div class="bar-section bar-logo">
+        <a href="index.html#home">
+          <img src="Photo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
+        </a>
+      </div>
+      <div class="bar-section bar-menu">
+        <a href="index.html#home">Beranda</a>
+        <a href="index.html#kopinya" class="active">Toko</a>
+        <a href="about.html">Tentangku</a>
+      </div>
+      <div class="bar-section bar-icons">
+        <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+          </svg>
+          <span class="cart-badge" id="cartBadge">0</span>
+        </button>
+        <div class="star-object" title="Bintang Interaktif">
+          <span class="star-icon">&#9733;</span>
+        </div>
+      </div>
+    </nav>
+  </footer>
+
+  <main>
+    <!-- PRODUCT HERO -->
+    <section class="product-detail">
+      <div class="product-gallery">
+        <div class="gallery-frame">
+          <span class="sale-ribbon">Sale</span>
+          <img id="mainProductImage" src="Photo/WhatsApp Image 2026-08-12 at 20.17.02.jpeg" alt="KOPIMEN" class="product-img">
+        </div>
+        <div class="thumbnail-row">
+          <button class="thumb active" data-img="Photo/WhatsApp Image 2026-08-12 at 20.17.02.jpeg"><img src="Photo/WhatsApp Image 2026-08-12 at 20.17.02.jpeg" alt="KOPIMEN - tampilan 1"></button>
+          <button class="thumb" data-img="Photo/vecteezy_ai-generated-coffee-beans-isolated-with-transparency_41302644.png"><img src="Photo/vecteezy_ai-generated-coffee-beans-isolated-with-transparency_41302644.png" alt="KOPIMEN - biji kopi"></button>
+          <button class="thumb" data-img="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png"><img src="Photo/vecteezy_ai-generated-aromatic-coffee-bean-clipart_41278516.png" alt="KOPIMEN - biji kopi close-up"></button>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <span class="product-eyebrow">Ringan &amp; Wangi</span>
+        <h2 class="product-name">KOPIMEN</h2>
+        <p class="product-price" id="productPrice" data-range="Rp68.000 &ndash; Rp290.000">Rp68.000 &ndash; Rp290.000</p>
+        <p class="product-tagline">Light roast dengan sentuhan citrus dan floral yang lembut, ditujukan buat kamu yang suka ngopi santai sepanjang hari.</p>
+
+        <div class="option-field">
+          <label for="ukuranSize">Ukuran</label>
+          <select id="ukuranSize">
+            <option value="">Pilih ukuran</option>
+            <option value="200gr" data-price="68000">200gr &mdash; Rp68.000</option>
+            <option value="500gr" data-price="155000">500gr &mdash; Rp155.000</option>
+            <option value="1kg" data-price="290000">1kg &mdash; Rp290.000</option>
+          </select>
+        </div>
+
+        <div class="option-field">
+          <label for="grindSize">Varian Giling</label>
+          <select id="grindSize">
+            <option value="">Pilih varian</option>
+            <option value="whole">Whole Bean</option>
+            <option value="medium">Medium Grind</option>
+            <option value="fine">Fine Grind</option>
+          </select>
+        </div>
+
+        <div class="product-actions">
+          <button class="btn-add-cart" id="addToCartBtn" data-name="KOPIMEN">Tambah ke Keranjang</button>
+          <button class="btn-buy-now" id="buyNowBtn" data-name="KOPIMEN">Beli Sekarang</button>
+        </div>
+
+        <div class="product-meta">
+          <p><span>SKU</span>KOE-MEN-01</p>
+          <p><span>Kategori</span>Light Roast</p>
+          <div class="share-row">
+            <span>Share:</span>
+            <a href="#" class="share-btn" aria-label="Bagikan ke Facebook">f</a>
+            <a href="#" class="share-btn" aria-label="Bagikan ke X">X</a>
+            <a href="https://wa.me/?text=Lihat KOPIMEN di KopiKOE:%20https://kopikoe.com/deskripsi-produk-2.html" target="_blank" class="share-btn" aria-label="Bagikan ke WhatsApp">WA</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABS: DESCRIPTION / ADDITIONAL INFO -->
+    <section class="product-tabs">
+      <div class="tabs-header">
+        <button class="tab-btn active" data-tab="deskripsi">Deskripsi</button>
+        <button class="tab-btn" data-tab="informasi">Informasi Tambahan</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-deskripsi">
+        <p>KOPIMEN adalah light roast dengan tingkat keasaman yang cerah, nada citrus dan floral yang halus, serta after-taste yang bersih. Cocok diseduh manual brew biar semua nuansa rasanya keluar maksimal.</p>
+      </div>
+
+      <div class="tab-panel" id="tab-informasi">
+        <ul class="spec-list">
+          <li><span>Jenis</span><span>Arabika</span></li>
+          <li><span>Origin</span><span>Gayo, Aceh</span></li>
+          <li><span>Profil Roast</span><span>Light Roast</span></li>
+          <li><span>Process</span><span>Washed</span></li>
+          <li><span>Flavor Notes</span><span>Jeruk, Bunga, Madu</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RELATED PRODUCTS -->
+    <section class="related-products">
+      <h3>Produk Lainnya</h3>
+      <div class="related-wrapper">
+        <div class="related-card">
+          <span class="sale-ribbon small">Sale</span>
+          <a href="deskripsi-produk-1.html">
+            <img src="Photo/Momo.jpeg" alt="KopiKok">
+            <div class="related-body">
+              <h4>KopiKok</h4>
+              <p class="related-price">Rp75.000 &ndash; Rp320.000</p>
+            </div>
+          </a>
+        </div>
+        <div class="related-card">
+          <span class="sale-ribbon small">Sale</span>
+          <a href="deskripsi-produk-3.html">
+            <img src="Photo/download (22).jpeg" alt="KOPIMOE">
+            <div class="related-body">
+              <h4>KOPIMOE</h4>
+              <p class="related-price">Rp82.000 &ndash; Rp340.000</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- MARQUEE -->
+  <div class="marquee-footer">
+    <div class="marquee-wrapper">
+      <div class="marquee-content">
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+      </div>
+      <div class="marquee-content" aria-hidden="true">
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col footer-brand">
+        <h3 class="footer-title">KopiKOE</h3>
+        <p class="footer-desc">Menyajikan racikan biji kopi pilihan nusantara dengan cita rasa autentik dan kualitas terbaik.</p>
+      </div>
+      <div class="footer-col footer-links">
+        <h4 class="footer-heading">Navigasi</h4>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="index.html#kopinya">Toko Kopi</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="quis.html">Kuis KopiMoe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4 class="footer-heading">Hubungi Kami</h4>
+        <ul class="contact-list">
+          <li><span class="icon">&#9993;</span><a href="mailto:halo@kopikoe.com">halo@kopikoe.com</a></li>
+          <li><span class="icon">&#128222;</span><a href="https://wa.me/6281234567890" target="_blank">+62 812-3456-7890</a></li>
+          <li><span class="icon">&#128205;</span><span>Jakarta, Indonesia</span></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-social">
+        <h4 class="footer-heading">Ikuti Kami</h4>
+        <div class="social-icons">
+          <a href="#" class="social-btn" title="Instagram">IG</a>
+          <a href="#" class="social-btn" title="TikTok">TK</a>
+          <a href="#" class="social-btn" title="WhatsApp">WA</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 KopiKOE. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

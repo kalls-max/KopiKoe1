@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="payment.css">
 </head>
 <body>
     <header class="navbar-header">
@@ -233,6 +233,7 @@
     </div>
 
     <script>
+        // Helper untuk format rupiah bulat
         function formatRupiah(amount) {
             return 'Rp ' + Math.round(amount).toLocaleString('id-ID');
         }
@@ -251,7 +252,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadSavedCustomerDetails();
 
-            // Mengambil data keranjang dari key localStorage 'kopikoe_cart'
+            // Pakai key keranjang yang sama dengan seluruh situs (lihat script.js)
             const cartData = JSON.parse(localStorage.getItem('kopikoe_cart')) || [];
             const itemsList = document.getElementById('checkoutItemsList');
             const subtotalEl = document.getElementById('summarySubtotal');
@@ -280,8 +281,8 @@
                 itemsList.appendChild(row);
             });
 
-            const shipping = 15000; 
-            const tax = subtotal * 0.11; 
+            const shipping = 15000; // Standar Ongkir Rp 15.000
+            const tax = subtotal * 0.11; // PPN 11%
             const total = subtotal + shipping + tax;
 
             subtotalEl.textContent = formatRupiah(subtotal);
@@ -335,7 +336,7 @@
             }
 
             alert('Pembayaran berhasil diverifikasi! Terima kasih telah berbelanja di KopiKOE. Kopi kamu akan disangrai dan dikirim dalam 24 jam.');
-            localStorage.removeItem('kopikoe_cart'); // Mengosongkan keranjang setelah checkout sukses
+            localStorage.removeItem('kopikoe_cart');
             window.location.href = 'index.html';
         }
     </script>

@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Toko - KopiKOE</title>
-  <link rel="stylesheet" href="assets/css/shop.css">
+  <link rel="stylesheet" href="shop.css">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- SIDE CART DRAWER -->
+  <!-- SIDE CART DRAWER (logika sama seperti halaman lain) -->
   <div id="cart-overlay" class="cart-overlay"></div>
   <div id="side-cart-drawer" class="side-cart-drawer">
     <div class="cart-drawer-header">
@@ -31,78 +31,43 @@
     </div>
   </div>
 
-  <!-- OVERLAY GELAP UNTUK SEARCH DROPDOWN -->
-  <div id="searchOverlay" class="search-overlay"></div>
-
-  <!-- TOP BAR KHUSUS SHOP -->
+  <!-- TOP BAR KHUSUS SHOP (bukan floating bottom bar) -->
   <header class="shop-topbar">
-    <!-- KIRI: Brand -->
     <a href="shop.html" class="shop-brand">toko'e</a>
 
-    <!-- TENGAH: Search Bar & Dropdown -->
-    <div class="shop-search" style="position: relative;">
+    <div class="shop-search">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" class="shop-search-icon">
         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
       </svg>
       <input type="text" id="shopSearchInput" class="shop-search-input" placeholder="Cari kopi favoritmu...">
-
-      <!-- DROPDOWN SEARCH SUGGESTION (4x1 Grid Kategori) -->
-      <div id="searchDropdownGrid" class="search-dropdown-box" style="display: none;">
-        <p class="search-dropdown-title">Kategori Jenis Kopi</p>
-        <div class="search-dropdown-grid">
-          <!-- Item 1: Arabika -->
-          <div class="search-drop-item" data-keyword="arabika">
-            <img src="assets/images/products/ian1.jpg" alt="Arabika">
-            <span>Arabika</span>
-          </div>
-          <!-- Item 2: Robusta -->
-          <div class="search-drop-item" data-keyword="robusta">
-            <img src="assets/images/products/yuha1.jpg" alt="Robusta">
-            <span>Robusta</span>
-          </div>
-          <!-- Item 3: Liberica -->
-          <div class="search-drop-item" data-keyword="liberica">
-            <img src="assets/images/products/jiwoo1.jpg" alt="Liberica">
-            <span>Liberica</span>
-          </div>
-          <!-- Item 4: Excelsa -->
-          <div class="search-drop-item" data-keyword="excelsa">
-            <img src="assets/images/products/carmen1.jpg" alt="Excelsa">
-            <span>Excelsa</span>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <!-- KANAN: Cart & Hamburger Wrapper -->
-    <div class="shop-topbar-right">
-      <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-          <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-        </svg>
-        <span class="cart-badge" id="cartBadge">0</span>
-      </button>
+    <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+      </svg>
+      <span class="cart-badge" id="cartBadge">0</span>
+    </button>
 
-      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-      <!-- DROPDOWN MENU HAMBURGER -->
-      <nav class="shop-dropdown" id="shopDropdown">
-        <a href="index.html">Beranda</a>
-        <a href="shop.html" class="active">Toko</a>
-        <a href="about.html">Tentangku</a>
-      </nav>
-    </div>
+    <!-- DROPDOWN MENU DARI HAMBURGER -->
+    <nav class="shop-dropdown" id="shopDropdown">
+      <a href="index.html#home">Beranda</a>
+      <a href="shop.html" class="active">Toko</a>
+      <a href="about.html">Tentangku</a>
+    </nav>
   </header>
 
   <main class="shop-main">
     <div class="shop-grid-header">
       <div>
         <h1 class="shop-title">Toko Kopi</h1>
-        <p class="shop-subtitle">Racikan biji kopi pilihan KopiKOE</p>
+        <p class="shop-subtitle">10 racikan biji kopi pilihan KopiKOE</p>
       </div>
 
       <!-- TOGGLE TAMPILAN GRID -->
@@ -124,7 +89,17 @@
       </div>
     </div>
 
-    <div class="product-grid" id="productGrid" data-view="rect"></div>
+    <div class="product-grid" id="productGrid" data-view="rect">
+      <a href="deskripsi-produk-1.html" class="shop-product-card" data-name="kopikok">
+        <div class="shop-product-img">
+          <img src="Photo/Momo.jpeg" alt="KopiKok" loading="lazy">
+        </div>
+        <div class="shop-product-info">
+          <h3>KopiKok</h3>
+          <p class="shop-product-price">Rp 75.000</p>
+        </div>
+    </a>
+
     <p class="shop-no-result" id="shopNoResult" style="display:none;">Produk tidak ditemukan.</p>
   </main>
 
@@ -153,7 +128,7 @@
           <li><a href="index.html">Beranda</a></li>
           <li><a href="shop.html">Toko Kopi</a></li>
           <li><a href="about.html">Tentang Kami</a></li>
-          <li><a href="index.html#kopimoe">Kuis KopiMoe</a></li>
+          <li><a href="quis.html">Kuis KopiMoe</a></li>
         </ul>
       </div>
       <div class="footer-col footer-contact">
@@ -178,7 +153,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/shop.js"></script>
+  <script src="script.js"></script>
+  <script src="shop.js"></script>
 </body>
 </html>

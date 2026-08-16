@@ -4,22 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tentang Kami - KopiKOE</title>
-  <!-- Memanggil dua CSS secara terpisah -->
-  <link rel="stylesheet" href="assets/css/about.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="about.css">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <section class="about-hero-full">
     <div class="hero-overlay"></div>
-    <div class="hero-content"></div>
+    <div class="hero-content">
   </section>
 
   <section class="about-story-section">
     <div class="story-wrapper">
       <div class="story-img-box">
-        <img src="assets/images/hero/heroA3.jpeg" alt="KopiKOE Story" class="story-image">
+        <img src="Photo/download (20).jpeg" alt="KopiKOE Story" class="story-image">
       </div>
       <div class="story-text-box">
         <h2 class="story-heading">Setiap kopribadian harus dirayakan.</h2>
@@ -99,27 +97,37 @@
 
   <footer class="bottom-bar-wrapper">
     <nav class="bottom-bar-pill" id="bottomBar">
+
+      <!-- 1. LOGO BRAND -->
       <div class="bar-section bar-logo">
         <a href="index.html">
           <img src="Photo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
         </a>
       </div>
+
+      <!-- 2. MENU NAVIGASI -->
       <div class="bar-section bar-menu">
         <a href="index.html">Beranda</a>
         <a href="index.html#kopinya">Toko</a>
         <a href="about.html" class="active">Tentangku</a>
       </div>
+
+      <!-- 3. IKON AKSI (KERANJANG + BINTANG) -->
       <div class="bar-section bar-icons">
+        <!-- Tombol Keranjang Belanja & Badge Count -->
         <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
           </svg>
           <span class="cart-badge" id="cartBadge">0</span>
         </button>
+
+        <!-- Objek Bintang Interaktif -->
         <div class="star-object" title="Bintang Interaktif">
           <span class="star-icon">&#9733;</span>
         </div>
       </div>
+
     </nav>
   </footer>
 
