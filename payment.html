@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KopiKOE | Pembayaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/payment.css">
+</head>
+<body>
+    <header class="navbar-header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">KopiKOE<span></span></a>
+            <a href="shop.html" class="btn btn-outline btn-sm">Kembali ke Toko</a>
+        </div>
+    </header>
+
+    <div class="checkout-page">
+        <div class="checkout-header">
+            <h1>Pembayaran &amp; Checkout</h1>
+            <p>Selesaikan pesanan kamu dengan aman. Kopi segar sangrai siap dikirim.</p>
+        </div>
+
+        <form id="checkoutForm" onsubmit="handlePlaceOrder(event)">
+            <div class="checkout-layout">
+                <div class="checkout-main">
+
+                    <!-- Alamat Pengiriman -->
+                    <div class="checkout-section">
+                        <h3><span>1.</span> Alamat Pengiriman</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="firstName">Nama Depan</label>
+                                <input type="text" id="firstName" required placeholder="Budi">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Nama Belakang</label>
+                                <input type="text" id="lastName" required placeholder="Santoso">
+                            </div>
+                            <div class="form-group full">
+                                <label for="email">Alamat Email</label>
+                                <input type="email" id="email" required placeholder="budi.santoso@example.com">
+                            </div>
+                            <div class="form-group full">
+                                <label for="address">Alamat Lengkap</label>
+                                <input type="text" id="address" required placeholder="Jl. Sudirman No. 123">
+                            </div>
+                            <div class="form-group">
+                                <label for="city">Kota / Kabupaten</label>
+                                <input type="text" id="city" required placeholder="Jakarta Selatan">
+                            </div>
+                            <div class="form-group">
+                                <label for="postalCode">Kode Pos</label>
+                                <input type="text" id="postalCode" required placeholder="12190">
+                            </div>
+                            <div class="form-group full">
+                                <label for="country">Negara / Wilayah</label>
+                                <select id="country" required>
+                                    <option value="ID" selected>Indonesia</option>
+                                    <option value="MY">Malaysia</option>
+                                    <option value="SG">Singapura</option>
+                                    <option value="AU">Australia</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metode Pembayaran -->
+                    <div class="checkout-section">
+                        <h3><span>2.</span> Metode Pembayaran</h3>
+                        <div class="payment-methods">
+
+                            <!-- Kartu Kredit / Debit -->
+                            <div class="payment-option selected" id="opt-card">
+                                <div class="payment-header" onclick="selectPayment('card')">
+                                    <div class="payment-title">
+                                        <input type="radio" name="paymentMethod" value="card" checked>
+                                        <span>Kartu Kredit / Debit</span>
+                                    </div>
+                                    <div class="payment-badges">
+                                        <span>Visa</span>
+                                        <span>Mastercard</span>
+                                        <span>JCB</span>
+                                    </div>
+                                </div>
+                                <div class="payment-body">
+                                    <div class="form-group full">
+                                        <label for="cardNumber">Nomor Kartu</label>
+                                        <input type="text" id="cardNumber" placeholder="4532 8890 1234 5678" maxlength="19">
+                                    </div>
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="cardExp">Masa Berlaku</label>
+                                            <input type="text" id="cardExp" placeholder="BB / TT">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="cardCvv">CVV / CVC</label>
+                                            <input type="text" id="cardCvv" placeholder="123" maxlength="4">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- E-Wallet -->
+                            <div class="payment-option" id="opt-ewallet">
+                                <div class="payment-header" onclick="selectPayment('ewallet')">
+                                    <div class="payment-title">
+                                        <input type="radio" name="paymentMethod" value="ewallet">
+                                        <span>Dompet Digital (E-Wallet)</span>
+                                    </div>
+                                    <div class="payment-badges">
+                                        <span>GoPay</span>
+                                        <span>OVO</span>
+                                        <span>ShopeePay</span>
+                                    </div>
+                                </div>
+                                <div class="payment-body">
+                                    <p style="font-size:0.85rem; margin-bottom: 12px;">Pilih layanan e-wallet pilihan kamu.</p>
+                                    <div class="form-group full">
+                                        <select id="ewalletProvider">
+                                            <option value="gopay">GoPay</option>
+                                            <option value="ovo">OVO</option>
+                                            <option value="shopeepay">ShopeePay</option>
+                                            <option value="dana">DANA</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Transfer Bank / VA -->
+                            <div class="payment-option" id="opt-bank">
+                                <div class="payment-header" onclick="selectPayment('bank')">
+                                    <div class="payment-title">
+                                        <input type="radio" name="paymentMethod" value="bank">
+                                        <span>Transfer Bank / Virtual Account</span>
+                                    </div>
+                                    <div class="payment-badges">
+                                        <span>BCA</span>
+                                        <span>Mandiri</span>
+                                        <span>BNI</span>
+                                        <span>BRI</span>
+                                    </div>
+                                </div>
+                                <div class="payment-body">
+                                    <div class="form-group full">
+                                        <select id="bankProvider">
+                                            <option value="bca">BCA Virtual Account</option>
+                                            <option value="mandiri">Mandiri Virtual Account</option>
+                                            <option value="bni">BNI Virtual Account</option>
+                                            <option value="bri">BRI Virtual Account</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- QRIS -->
+                            <div class="payment-option" id="opt-qris">
+                                <div class="payment-header" onclick="selectPayment('qris')">
+                                    <div class="payment-title">
+                                        <input type="radio" name="paymentMethod" value="qris">
+                                        <span>QRIS / Scan Instan</span>
+                                    </div>
+                                    <div class="payment-badges">
+                                        <span>BCA / GoPay / OVO / Dana</span>
+                                    </div>
+                                </div>
+                                <div class="payment-body">
+                                    <div class="qr-placeholder">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=KOPIKOE-DEMO-PAYMENT" alt="Kode QRIS">
+                                        <p style="font-size:0.8rem; color: var(--coffee-brown);">Pindai menggunakan aplikasi pembayaran pilihan kamu.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bayar di Tempat (COD) -->
+                            <div class="payment-option" id="opt-cod">
+                                <div class="payment-header" onclick="selectPayment('cod')">
+                                    <div class="payment-title">
+                                        <input type="radio" name="paymentMethod" value="cod">
+                                        <span>Bayar di Tempat (COD)</span>
+                                    </div>
+                                    <div class="payment-badges">
+                                        <span>Bayar saat diterima</span>
+                                    </div>
+                                </div>
+                                <div class="payment-body">
+                                    <p style="font-size:0.85rem;">Bayar langsung secara tunai ke kurir saat paket tiba.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Opsi Simpan Data -->
+                        <label class="remember-checkbox">
+                            <input type="checkbox" id="rememberMe" checked>
+                            Simpan informasi saya untuk kemudahan checkout berikutnya
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary full-width" style="padding: 16px; font-size: 1rem;">Bayar &amp; Selesaikan Pesanan</button>
+
+                    <div class="secure-notice">
+                        Enkripsi SSL 256-Bit &bull; Garansi Kesegaran Sangrai
+                    </div>
+                </div>
+
+                <!-- Ringkasan Pesanan -->
+                <div class="order-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <div class="summary-items" id="checkoutItemsList"></div>
+                    <div class="summary-totals">
+                        <div class="total-row">
+                            <span>Subtotal</span>
+                            <span id="summarySubtotal">Rp 0</span>
+                        </div>
+                        <div class="total-row">
+                            <span>Ongkos Kirim</span>
+                            <span id="summaryShipping">Rp 15.000</span>
+                        </div>
+                        <div class="total-row">
+                            <span>PPN (11%)</span>
+                            <span id="summaryTax">Rp 0</span>
+                        </div>
+                        <div class="total-row grand-total">
+                            <span>Total Pembayaran</span>
+                            <span id="summaryGrandTotal">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function formatRupiah(amount) {
+            return 'Rp ' + Math.round(amount).toLocaleString('id-ID');
+        }
+
+        function selectPayment(method) {
+            const options = document.querySelectorAll('.payment-option');
+            options.forEach(opt => opt.classList.remove('selected'));
+            const selectedOpt = document.getElementById('opt-' + method);
+            if (selectedOpt) {
+                selectedOpt.classList.add('selected');
+                const radio = selectedOpt.querySelector('input[type="radio"]');
+                if (radio) radio.checked = true;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSavedCustomerDetails();
+
+            // Mengambil data keranjang dari key localStorage 'kopikoe_cart'
+            const cartData = JSON.parse(localStorage.getItem('kopikoe_cart')) || [];
+            const itemsList = document.getElementById('checkoutItemsList');
+            const subtotalEl = document.getElementById('summarySubtotal');
+            const taxEl = document.getElementById('summaryTax');
+            const grandTotalEl = document.getElementById('summaryGrandTotal');
+
+            if (!cartData || cartData.length === 0) {
+                itemsList.innerHTML = '<p style="font-size:0.85rem; color: var(--coffee-brown);">Keranjang belanja kosong. <a href="shop.html" style="color:var(--orange-accent); font-weight:600;">Kembali berbelanja</a>.</p>';
+                return;
+            }
+
+            let subtotal = 0;
+            itemsList.innerHTML = '';
+            cartData.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                const row = document.createElement('div');
+                row.className = 'summary-item';
+                row.innerHTML = `
+                    <div>
+                        <strong>${item.name}</strong>
+                        <div style="font-size: 0.75rem; color: var(--coffee-brown);">Qty: ${item.qty}</div>
+                    </div>
+                    <span>${formatRupiah(itemTotal)}</span>
+                `;
+                itemsList.appendChild(row);
+            });
+
+            const shipping = 15000; 
+            const tax = subtotal * 0.11; 
+            const total = subtotal + shipping + tax;
+
+            subtotalEl.textContent = formatRupiah(subtotal);
+            taxEl.textContent = formatRupiah(tax);
+            grandTotalEl.textContent = formatRupiah(total);
+        });
+
+        function loadSavedCustomerDetails() {
+            const saved = JSON.parse(localStorage.getItem('kopikoe_customer_details'));
+            if (saved) {
+                document.getElementById('firstName').value = saved.firstName || '';
+                document.getElementById('lastName').value = saved.lastName || '';
+                document.getElementById('email').value = saved.email || '';
+                document.getElementById('address').value = saved.address || '';
+                document.getElementById('city').value = saved.city || '';
+                document.getElementById('postalCode').value = saved.postalCode || '';
+                document.getElementById('country').value = saved.country || 'ID';
+
+                if (saved.selectedMethod) selectPayment(saved.selectedMethod);
+                if (saved.cardNumber) document.getElementById('cardNumber').value = saved.cardNumber;
+                if (saved.cardExp) document.getElementById('cardExp').value = saved.cardExp;
+                if (saved.ewalletProvider) document.getElementById('ewalletProvider').value = saved.ewalletProvider;
+                if (saved.bankProvider) document.getElementById('bankProvider').value = saved.bankProvider;
+
+                document.getElementById('rememberMe').checked = true;
+            }
+        }
+
+        function handlePlaceOrder(event) {
+            event.preventDefault();
+
+            if (document.getElementById('rememberMe').checked) {
+                const selectedRadio = document.querySelector('input[name="paymentMethod"]:checked');
+                const customerDetails = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    city: document.getElementById('city').value,
+                    postalCode: document.getElementById('postalCode').value,
+                    country: document.getElementById('country').value,
+                    selectedMethod: selectedRadio ? selectedRadio.value : 'card',
+                    cardNumber: document.getElementById('cardNumber').value,
+                    cardExp: document.getElementById('cardExp').value,
+                    ewalletProvider: document.getElementById('ewalletProvider').value,
+                    bankProvider: document.getElementById('bankProvider').value
+                };
+                localStorage.setItem('kopikoe_customer_details', JSON.stringify(customerDetails));
+            } else {
+                localStorage.removeItem('kopikoe_customer_details');
+            }
+
+            alert('Pembayaran berhasil diverifikasi! Terima kasih telah berbelanja di KopiKOE. Kopi kamu akan disangrai dan dikirim dalam 24 jam.');
+            localStorage.removeItem('kopikoe_cart'); // Mengosongkan keranjang setelah checkout sukses
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
