@@ -1,26 +1,67 @@
 [
-  {
+ {
     "id": "kopi-01",
-    "name": "Carmen",
-    "eyebrow": "Bold & Pekat",
-    "sku": "KOE-KOK-01",
-    "category": "Bold Roast",
-    "priceRange": "Rp75.000 – Rp320.000",
-    "price": 75000,
-    "tagline": "Racikan biji kopi pilihan dengan karakter bold, pekat, dan aroma khas nusantara.",
-    "description": "Carmen adalah racikan biji kopi pilihan dengan cita rasa bold, pekat, dan aroma khas nusantara. Dipanggang dalam batch kecil supaya rasa gosongnya pas, cocok buat kamu yang butuh dorongan energi ekstra di pagi hari.",
+    "name": "Gayo Takengon — Tanah Rencong",
+    "eyebrow": "ARABIKA • ACEH • SINGLE ORIGIN",
+    "sku": "KOE-GAY-01",
+    "category": "Arabika Nusantara",
+    "priceRange": "Rp69.000 – Rp295.000",
+    "price": 69000,
+    "tagline": "Kopi penuh cerita dari Gayo.",
+    "description": "Gayo adalah kopi untuk penikmat yang menyukai karakter kuat tanpa pahit yang berlebihan. Tumbuh di dataran tinggi Aceh, Arabika Gayo dikenal dengan body yang tebal, keasaman relatif rendah, manis lembut, serta nuansa nutty dan rempah. Satu tegukannya terasa membawamu menjelajahi Tanah Gayo.",
+    "encyclopedia": {
+      "title": "Arabika Gayo",
+      "subtitle": "Si Tenang yang Diam-Diam Berkarakter",
+      "summary": "Arabika Gayo berasal dari dataran tinggi Gayo, Aceh. Kopi ini dikenal dengan body yang relatif tebal, acidity yang cenderung rendah, serta karakter rasa yang dapat menghadirkan nuansa cokelat, kacang, rempah, dan rasa manis yang lembut.",
+      "character": [
+        "Full Body",
+        "Low-Medium Acidity",
+        "Nutty",
+        "Chocolate",
+        "Spicy"
+      ],
+      "origin": "Gayo, Aceh",
+      "species": "Coffea arabica",
+      "whyInteresting": "Gayo menjadi salah satu kopi Indonesia yang mudah dikenali karena keseimbangan antara karakter yang kuat dan rasa yang tetap nyaman dinikmati.",
+      "suitableFor": "Penikmat kopi ber-body, pemula single origin, dan pencinta kopi dengan karakter cokelat serta nutty.",
+      "funFact": "Kopi Arabika Gayo telah memperoleh perlindungan Indikasi Geografis di Indonesia."
+    },
     "specs": {
-      "jenis": "Robusta & Arabika Blend",
-      "origin": "Ijen, Jawa Timur",
-      "roast": "Medium-Dark Roast",
-      "process": "Full Wash",
-      "flavor": "Dark Chocolate, Toasted Nut, Rempah"
+      "jenis": "100% Arabika",
+      "origin": "Gayo, Aceh",
+      "roast": "Medium",
+      "process": "Wet-hulled",
+      "flavor": "Nutty, Chocolate, Spice, Buttery"
     },
     "sizes": [
-      { "label": "200gr", "price": 75000 },
-      { "label": "500gr", "price": 170000 },
-      { "label": "1kg", "price": 320000 }
+      {
+        "label": "200 g",
+        "price": 69000
+      },
+      {
+        "label": "500 g",
+        "price": 159000
+      },
+      {
+        "label": "1 kg",
+        "price": 295000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Penyeimbang",
+      "bold": 3,
+      "sweet": 4,
+      "fruity": 1,
+      "floral": 1,
+      "earthy": 3,
+      "body": 4,
+      "familiar": 5,
+      "adventure": 2,
+      "highland": 5,
+      "volcanic": 2,
+      "tropical": 1,
+      "eastern": 1
+    },
     "images": [
       "https://rricoid-assets.obs.ap-southeast-4.myhuaweicloud.com/berita/Pusat_Pemberitaan/o/1740461331254-20250225_121529/jxg4t9b994bi3pv.jpeg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBXk5M42jAZ1WsPMyD5TOZ0pHvrZqXSxKuaOmQCvkgCQ&s=10",
@@ -29,26 +70,67 @@
   },
   {
     "id": "kopi-02",
-    "name": "Jiwoo",
-    "eyebrow": "Ringan & Wangi",
-    "sku": "KOE-MEN-01",
-    "category": "Light Roast",
-    "priceRange": "Rp68.000 – Rp290.000",
-    "price": 68000,
-    "tagline": "Light roast dengan sentuhan citrus dan floral yang lembut.",
-    "description": "Jiwoo adalah light roast dengan tingkat keasaman yang cerah, nada citrus dan floral yang halus, serta after-taste yang bersih.",
+    "name": "Toraja Kalosi — Celebes Highland",
+    "eyebrow": "ARABIKA • TORAJA • SULAWESI SELATAN",
+    "sku": "KOE-TOR-02",
+    "category": "Arabika Nusantara",
+    "priceRange": "Rp72.000 – Rp315.000",
+    "price": 72000,
+    "tagline": "Aroma pegunungan Toraja, dengan karakter dalam yang tak lekas hilang.",
+    "description": "Toraja Kalosi menawarkan pengalaman yang elegan: body yang relatif tebal, acidity yang cenderung lembut, serta karakter aromatik yang dapat menghadirkan nuansa floral, fruity, cokelat, dan rempah. Karakternya dalam namun tetap halus ketika diminum.",
+    "encyclopedia": {
+      "title": "Arabika Toraja Kalosi",
+      "subtitle": "Si Elegan dari Pegunungan Sulawesi",
+      "summary": "Arabika Toraja Kalosi berasal dari wilayah pegunungan Sulawesi Selatan. Kopi ini dikenal dengan body yang relatif penuh serta karakter aromatik yang dapat berkembang ke arah floral, fruity, cokelat, dan rempah.",
+      "character": [
+        "Full Body",
+        "Low-Medium Acidity",
+        "Floral",
+        "Fruity",
+        "Spicy"
+      ],
+      "origin": "Toraja, Sulawesi Selatan",
+      "species": "Coffea arabica",
+      "whyInteresting": "Toraja memiliki karakter yang dalam dan aromatik sehingga menarik bagi penikmat yang ingin menjelajah kopi Indonesia dengan kompleksitas rasa.",
+      "suitableFor": "Penikmat kopi hitam berkarakter, manual brew, dan pencinta aroma floral serta fruity.",
+      "funFact": "Kopi Arabika Toraja dan Arabika Kalosi Enrekang memiliki perlindungan Indikasi Geografis."
+    },
     "specs": {
-      "jenis": "Arabika",
-      "origin": "Gayo, Aceh",
-      "roast": "Light Roast",
+      "jenis": "100% Arabika",
+      "origin": "Toraja, Sulawesi Selatan",
+      "roast": "Medium",
       "process": "Washed",
-      "flavor": "Jeruk, Bunga, Madu"
+      "flavor": "Floral, Fruity, Chocolate, Spice"
     },
     "sizes": [
-      { "label": "200gr", "price": 68000 },
-      { "label": "500gr", "price": 155000 },
-      { "label": "1kg", "price": 290000 }
+      {
+        "label": "200 g",
+        "price": 72000
+      },
+      {
+        "label": "500 g",
+        "price": 169000
+      },
+      {
+        "label": "1 kg",
+        "price": 315000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Elegan",
+      "bold": 2,
+      "sweet": 3,
+      "fruity": 4,
+      "floral": 4,
+      "earthy": 3,
+      "body": 4,
+      "familiar": 3,
+      "adventure": 3,
+      "highland": 5,
+      "volcanic": 3,
+      "tropical": 1,
+      "eastern": 2
+    },
     "images": [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSACS1Cvyla6Z2jLGPVMTjVxzljF15Jf8PdpqPor5659A&s=10",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAqVWgOLkJQLITMnHK4v9DPMef_V6oKP5Wf2CLlPEeqw&s=10",
@@ -57,26 +139,68 @@
   },
   {
     "id": "kopi-03",
-    "name": "Yuha",
-    "eyebrow": "Manis & Bersahabat",
-    "sku": "KOE-MOE-01",
-    "category": "Medium Roast",
-    "priceRange": "Rp82.000 – Rp340.000",
-    "price": 82000,
-    "tagline": "Medium roast seimbang dengan nada karamel dan cokelat.",
-    "description": "Yuha adalah medium roast yang seimbang antara asam dan pahit, dengan sentuhan karamel dan cokelat di setiap tegukan.",
+    "name": "Flores Bajawa — Bara dari Ngada",
+    "eyebrow": "ARABIKA • FLORES • NUSA TENGGARA TIMUR",
+    "sku": "KOE-FLO-03",
+    "category": "Arabika Nusantara",
+    "priceRange": "Rp69.000 – Rp295.000",
+    "price": 69000,
+    "tagline": "Hangat seperti tanah Flores, manis seperti cerita dari Bajawa.",
+    "description": "Flores Bajawa dikenal sebagai kopi Arabika dari dataran tinggi Ngada, Flores. Karakternya cenderung seimbang dengan acidity sedang, rasa manis, serta nuansa yang dapat mengarah pada kacang, cokelat, karamel, dan herbal.",
+    "encyclopedia": {
+      "title": "Arabika Flores Bajawa",
+      "subtitle": "Si Hangat dari Tanah Flores",
+      "summary": "Arabika Flores Bajawa berasal dari dataran tinggi Bajawa di Flores, Nusa Tenggara Timur. Kopi ini dikenal dengan karakter yang seimbang, manis, acidity sedang, dan nuansa rasa yang dapat mengarah pada kacang, cokelat, karamel, serta herbal.",
+      "character": [
+        "Medium Body",
+        "Medium Acidity",
+        "Sweet",
+        "Nutty",
+        "Caramel",
+        "Herbal"
+      ],
+      "origin": "Bajawa, Flores, Nusa Tenggara Timur",
+      "species": "Coffea arabica",
+      "whyInteresting": "Bajawa menjadi pilihan menarik bagi orang yang ingin memasuki dunia single origin karena karakternya relatif mudah didekati namun tetap memiliki identitas kuat.",
+      "suitableFor": "Pemula specialty coffee, pencinta rasa manis, dan penikmat manual brew.",
+      "funFact": "Arabika Flores Bajawa merupakan salah satu kopi Indonesia yang telah memperoleh perlindungan Indikasi Geografis."
+    },
     "specs": {
-      "jenis": "Arabika",
-      "origin": "Toraja, Sulawesi Selatan",
-      "roast": "Medium Roast",
+      "jenis": "100% Arabika",
+      "origin": "Bajawa, Flores, Nusa Tenggara Timur",
+      "roast": "Medium",
       "process": "Honey Process",
-      "flavor": "Karamel, Cokelat Susu, Kacang"
+      "flavor": "Nutty, Caramel, Chocolate, Herbal"
     },
     "sizes": [
-      { "label": "200gr", "price": 82000 },
-      { "label": "500gr", "price": 190000 },
-      { "label": "1kg", "price": 340000 }
+      {
+        "label": "200 g",
+        "price": 69000
+      },
+      {
+        "label": "500 g",
+        "price": 159000
+      },
+      {
+        "label": "1 kg",
+        "price": 295000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Hangat",
+      "bold": 2,
+      "sweet": 5,
+      "fruity": 3,
+      "floral": 2,
+      "earthy": 2,
+      "body": 3,
+      "familiar": 4,
+      "adventure": 2,
+      "highland": 4,
+      "volcanic": 2,
+      "tropical": 3,
+      "eastern": 5
+    },
     "images": [
       "https://i.pinimg.com/736x/fb/a5/e7/fba5e746c67d4d790be894fe08d985a9.jpg",
       "https://i.pinimg.com/736x/a5/f4/48/a5f448c2aa40be9c1f6ce2358d40f120.jpg",
@@ -85,26 +209,66 @@
   },
   {
     "id": "kopi-04",
-    "name": "Stella",
-    "eyebrow": "Fruity & Segar",
-    "sku": "KOE-KIN-01",
-    "category": "Light Roast",
-    "priceRange": "Rp90.000 – Rp360.000",
-    "price": 90000,
-    "tagline": "Sensasi manis alami khas buah-buahan Bali.",
-    "description": "Kopi Kintamani dengan rasa manis buah jeruk alami yang unik khas tanah vulkanik Bali.",
+    "name": "Wamena Jayawijaya — Tanah Awan Papua",
+    "eyebrow": "ARABIKA • WAMENA • PAPUA",
+    "sku": "KOE-WAM-04",
+    "category": "Arabika Nusantara",
+    "priceRange": "Rp79.000 – Rp345.000",
+    "price": 79000,
+    "tagline": "Lembut di lidah, liar dalam aroma—rasa Papua dalam setiap tegukan.",
+    "description": "Arabika Wamena dikenal dengan karakter yang relatif lembut dan aromatik. Bergantung pada varietas dan proses pengolahannya, kopi ini dapat menghadirkan nuansa floral, cokelat, karamel, dan rasa manis yang menarik.",
+    "encyclopedia": {
+      "title": "Arabika Papua Wamena",
+      "subtitle": "Si Penjelajah dari Tanah Awan",
+      "summary": "Arabika Papua Wamena berasal dari kawasan dataran tinggi Papua. Karakternya dikenal relatif lembut dan aromatik, dengan kemungkinan nuansa floral, cokelat, karamel, dan rasa manis yang bergantung pada varietas serta proses pascapanen.",
+      "character": [
+        "Light-Medium Body",
+        "Aromatic",
+        "Floral",
+        "Chocolate",
+        "Sweet"
+      ],
+      "origin": "Wamena, Papua",
+      "species": "Coffea arabica",
+      "whyInteresting": "Wamena memperlihatkan sisi kopi Indonesia bagian timur yang aromatik dan lembut, dengan latar geografis yang sangat khas.",
+      "suitableFor": "Pencinta kopi aromatik, manual brew, dan penjelajah single origin Indonesia Timur."
+    },
     "specs": {
-      "jenis": "Arabika Single Origin",
-      "origin": "Kintamani, Bali",
-      "roast": "Light-Medium Roast",
+      "jenis": "100% Arabika",
+      "origin": "Wamena, Papua",
+      "roast": "Medium",
       "process": "Honey Process",
-      "flavor": "Citrus, Sweet Orange, Brown Sugar"
+      "flavor": "Floral, Chocolate, Caramel, Brown Sugar"
     },
     "sizes": [
-      { "label": "200gr", "price": 90000 },
-      { "label": "500gr", "price": 200000 },
-      { "label": "1kg", "price": 360000 }
+      {
+        "label": "200 g",
+        "price": 79000
+      },
+      {
+        "label": "500 g",
+        "price": 185000
+      },
+      {
+        "label": "1 kg",
+        "price": 345000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Penjelajah Aroma",
+      "bold": 2,
+      "sweet": 4,
+      "fruity": 3,
+      "floral": 5,
+      "earthy": 1,
+      "body": 2,
+      "familiar": 3,
+      "adventure": 4,
+      "highland": 4,
+      "volcanic": 1,
+      "tropical": 3,
+      "eastern": 5
+    },
     "images": [
       "https://i.pinimg.com/736x/e3/e6/35/e3e635181aaa6c4417f9da58d4f65fa5.jpg",
       "https://i.pinimg.com/1200x/0c/56/c4/0c56c493fc32cfa33b707d21589a9e31.jpg",
@@ -113,26 +277,68 @@
   },
   {
     "id": "kopi-05",
-    "name": "Ju'un",
-    "eyebrow": "Nutty & Sweet",
-    "sku": "KOE-BAJ-01",
-    "category": "Medium Roast",
-    "priceRange": "Rp88.000 – Rp350.000",
-    "price": 88000,
-    "tagline": "Keharuman aroma kacang almond dan karamel manis.",
-    "description": "Biji kopi Flores Bajawa yang diproses secara Washed menghasilkan kebersihan rasa luar biasa.",
+    "name": "Lampung Pahoman — Sang Penjaga Pagi",
+    "eyebrow": "ROBUSTA • LAMPUNG • STRONG BODY",
+    "sku": "KOE-LAM-05",
+    "category": "Robusta Nusantara",
+    "priceRange": "Rp39.000 – Rp165.000",
+    "price": 39000,
+    "tagline": "Pekat, tegas, dan berani—kopi untuk mereka yang tidak ingin paginya berjalan pelan.",
+    "description": "Robusta Lampung dikenal dengan body yang kuat, acidity relatif rendah, serta karakter yang dapat mengarah pada earthy, woody, nutty, dan cokelat. Karakter tersebut membuatnya cocok untuk kopi tubruk, espresso, moka pot, maupun kopi susu.",
+    "encyclopedia": {
+      "title": "Robusta Lampung",
+      "subtitle": "Si Petarung dari Selatan Sumatra",
+      "summary": "Robusta Lampung merupakan salah satu kopi Robusta penting dari Indonesia. Karakternya dikenal tegas dengan body kuat, acidity relatif rendah, serta nuansa earthy, woody, nutty, dan cokelat yang dapat berbeda sesuai varietas dan proses.",
+      "character": [
+        "Full Body",
+        "Low Acidity",
+        "Earthy",
+        "Nutty",
+        "Chocolate",
+        "Strong"
+      ],
+      "origin": "Lampung, Sumatra",
+      "species": "Coffea canephora",
+      "whyInteresting": "Robusta Lampung menunjukkan sisi kopi Indonesia yang tegas dan penuh tenaga, sangat berbeda dari kopi Arabika yang mengutamakan floral dan acidity.",
+      "suitableFor": "Pencinta kopi pekat, espresso, kopi susu, moka pot, dan tubruk.",
+      "funFact": "Kopi Robusta Lampung memiliki perlindungan Indikasi Geografis."
+    },
     "specs": {
-      "jenis": "Arabika",
-      "origin": "Bajawa, Flores",
-      "roast": "Medium Roast",
-      "process": "Full Washed",
-      "flavor": "Almond, Milk Chocolate, Caramel"
+      "jenis": "100% Robusta",
+      "origin": "Lampung, Sumatra",
+      "roast": "Medium-Dark",
+      "process": "Natural",
+      "flavor": "Earthy, Nutty, Dark Chocolate, Woody"
     },
     "sizes": [
-      { "label": "200gr", "price": 88000 },
-      { "label": "500gr", "price": 195000 },
-      { "label": "1kg", "price": 350000 }
+      {
+        "label": "200 g",
+        "price": 39000
+      },
+      {
+        "label": "500 g",
+        "price": 89000
+      },
+      {
+        "label": "1 kg",
+        "price": 165000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Penggugah",
+      "bold": 5,
+      "sweet": 2,
+      "fruity": 0,
+      "floral": 0,
+      "earthy": 5,
+      "body": 5,
+      "familiar": 5,
+      "adventure": 1,
+      "highland": 2,
+      "volcanic": 5,
+      "tropical": 2,
+      "eastern": 0
+    },
     "images": [
       "https://i.pinimg.com/736x/4e/bc/73/4ebc739c348776524e7e54a6fe9aa6be.jpg",
       "https://i.pinimg.com/736x/7a/91/61/7a9161f0a192b1a2dc961809c66b3b64.jpg",
@@ -141,26 +347,67 @@
   },
   {
     "id": "kopi-06",
-    "name": "A-na",
-    "eyebrow": "Herbal & Spice",
-    "sku": "KOE-MAN-01",
-    "category": "Medium-Dark Roast",
-    "priceRange": "Rp92.000 – Rp370.000",
-    "price": 92000,
-    "tagline": "Kopi bertubuh mantap dengan sentuhan rempah herbal khas Sumatra.",
-    "description": "Karakter penuh rasa dan ketebalan rasa khas Mandheling untuk pecinta kopi sejati.",
+    "name": "Temanggung Robusta — Sigaraga",
+    "eyebrow": "ROBUSTA • TEMANGGUNG • JAWA TENGAH",
+    "sku": "KOE-TEM-06",
+    "category": "Robusta Nusantara",
+    "priceRange": "Rp39.000 – Rp175.000",
+    "price": 39000,
+    "tagline": "Pekatnya Jawa Tengah, dengan aroma yang mengingatkan pada cokelat dan tembakau.",
+    "description": "Robusta Temanggung memiliki karakter yang kuat dengan nuansa cokelat, mocha, earthy, serta karakter aromatik yang dapat mengingatkan pada tembakau. Kopi ini cocok bagi penikmat yang menyukai rasa bold dan body yang penuh.",
+    "encyclopedia": {
+      "title": "Robusta Temanggung",
+      "subtitle": "Si Berani dari Lereng Jawa",
+      "summary": "Robusta Temanggung berasal dari kawasan pegunungan Temanggung, Jawa Tengah. Kopinya dikenal dengan body kuat serta karakter cokelat, mocha, earthy, dan nuansa yang dapat mengingatkan pada tembakau.",
+      "character": [
+        "Full Body",
+        "Low-Medium Acidity",
+        "Chocolate",
+        "Mocha",
+        "Earthy",
+        "Tobacco-like"
+      ],
+      "origin": "Temanggung, Jawa Tengah",
+      "species": "Coffea canephora",
+      "whyInteresting": "Temanggung memiliki karakter yang tegas dan khas sehingga menarik bagi pencinta kopi dengan profil rasa yang lebih gelap.",
+      "suitableFor": "Pencinta kopi bold, kopi susu, tubruk, espresso, dan rasa earthy."
+    },
     "specs": {
-      "jenis": "Arabika",
-      "origin": "Mandailing, Sumatera Utara",
-      "roast": "Medium-Dark Roast",
-      "process": "Natural Process",
-      "flavor": "Herbal, Rempah, Dark Cocoa"
+      "jenis": "100% Robusta",
+      "origin": "Temanggung, Jawa Tengah",
+      "roast": "Medium-Dark",
+      "process": "Natural",
+      "flavor": "Chocolate, Mocha, Earthy, Tobacco-like"
     },
     "sizes": [
-      { "label": "200gr", "price": 92000 },
-      { "label": "500gr", "price": 205000 },
-      { "label": "1kg", "price": 370000 }
+      {
+        "label": "200 g",
+        "price": 39000
+      },
+      {
+        "label": "500 g",
+        "price": 92000
+      },
+      {
+        "label": "1 kg",
+        "price": 175000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Berani",
+      "bold": 5,
+      "sweet": 3,
+      "fruity": 1,
+      "floral": 0,
+      "earthy": 5,
+      "body": 5,
+      "familiar": 4,
+      "adventure": 2,
+      "highland": 4,
+      "volcanic": 5,
+      "tropical": 1,
+      "eastern": 0
+    },
     "images": [
       "https://i.pinimg.com/736x/2e/13/db/2e13dbf08803d761a2bd68a9cbe755e8.jpg",
       "https://i.pinimg.com/736x/93/1b/d0/931bd0860adc6c4dd1e37219de8596fb.jpg",
@@ -169,26 +416,68 @@
   },
   {
     "id": "kopi-07",
-    "name": "Ian",
-    "eyebrow": "Floral & Berry",
-    "sku": "KOE-CIW-01",
-    "category": "Light Roast",
-    "priceRange": "Rp98.000 – Rp390.000",
-    "price": 98000,
-    "tagline": "Keasaman floral dan buah berry manis yang segar.",
-    "description": "Tingkat keasaman yang cerah menyerupai buah berry segar dengan keharuman bunga melati.",
+    "name": "Liberika Tungkal — Rimba Gambut Jambi",
+    "eyebrow": "LIBERIKA • JAMBI • RARE INDONESIAN COFFEE",
+    "sku": "KOE-LIB-07",
+    "category": "Kopi Langka Nusantara",
+    "priceRange": "Rp69.000 – Rp295.000",
+    "price": 69000,
+    "tagline": "Bukan sekadar kopi—ini rasa gambut Jambi yang tak mudah ditemukan.",
+    "description": "Liberika Tungkal, atau Libtukom, tumbuh di kawasan Tanjung Jabung Barat, Jambi, termasuk lingkungan lahan gambut. Karakternya dapat menghadirkan nuansa buah tropis seperti nangka, herbal, rempah, dan kayu dengan karakter acidity yang khas.",
+    "encyclopedia": {
+      "title": "Liberika Tungkal Jambi",
+      "subtitle": "Si Eksotis yang Tumbuh di Tanah Gambut",
+      "summary": "Liberika Tungkal atau Libtukom merupakan kopi Liberika dari Tanjung Jabung Barat, Jambi. Kopi ini menarik karena dapat tumbuh pada lingkungan lahan gambut dan memiliki karakter sensori yang berbeda dari Arabika maupun Robusta.",
+      "character": [
+        "Medium-Full Body",
+        "Fruity",
+        "Jackfruit-like",
+        "Herbal",
+        "Spicy",
+        "Woody"
+      ],
+      "origin": "Tanjung Jabung Barat, Jambi",
+      "species": "Coffea liberica",
+      "whyInteresting": "Liberika Tungkal menunjukkan bahwa kekayaan kopi Indonesia jauh melampaui dua jenis yang paling umum dikenal, yaitu Arabika dan Robusta.",
+      "suitableFor": "Coffee explorer, pencinta kopi langka, manual brew, dan penikmat rasa yang tidak biasa.",
+      "funFact": "Kopi Liberika Tungkal telah memperoleh perlindungan Indikasi Geografis."
+    },
     "specs": {
-      "jenis": "Arabika Single Origin",
-      "origin": "Ciwidey, Jawa Barat",
-      "roast": "Light Roast",
+      "jenis": "Liberika",
+      "origin": "Tanjung Jabung Barat, Jambi",
+      "roast": "Medium",
       "process": "Honey Process",
-      "flavor": "Jasmine, Blackcurrant, Honey"
+      "flavor": "Jackfruit-like, Herbal, Spice, Woody"
     },
     "sizes": [
-      { "label": "200gr", "price": 98000 },
-      { "label": "500gr", "price": 215000 },
-      { "label": "1kg", "price": 390000 }
+      {
+        "label": "200 g",
+        "price": 69000
+      },
+      {
+        "label": "500 g",
+        "price": 159000
+      },
+      {
+        "label": "1 kg",
+        "price": 295000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Penjelajah Rimba",
+      "bold": 2,
+      "sweet": 4,
+      "fruity": 5,
+      "floral": 2,
+      "earthy": 4,
+      "body": 3,
+      "familiar": 1,
+      "adventure": 5,
+      "highland": 1,
+      "volcanic": 2,
+      "tropical": 5,
+      "eastern": 1
+    },
     "images": [
       "https://i.pinimg.com/1200x/bf/5a/f3/bf5af32e9e0f5a9b2e0cb08fe94e8bf1.jpg",
       "https://i.pinimg.com/736x/72/d2/a9/72d2a90f812525258a7ff301a0a08ba9.jpg",
@@ -197,26 +486,68 @@
   },
   {
     "id": "kopi-08",
-    "name": "Ye-on",
-    "eyebrow": "Rich & Organic",
-    "sku": "KOE-WAM-01",
-    "category": "Medium Roast",
-    "priceRange": "Rp105.000 – Rp420.000",
-    "price": 105000,
-    "tagline": "Kopi organik langka dari lembah Wamena.",
-    "description": "Ditanam secara organik di Lembah Baliem Papua. Menghasilkan rasa kopi yang sangat halus.",
+    "name": "Excelsa Wonosalam — Anjasmoro Heritage",
+    "eyebrow": "EXCELSA • WONOSALAM • JOMBANG",
+    "sku": "KOE-EXC-08",
+    "category": "Rare Coffee Nusantara",
+    "priceRange": "Rp39.000 – Rp200.000",
+    "price": 39000,
+    "tagline": "Dari lereng Anjasmoro, kopi langka dengan rasa yang tak mau disamakan.",
+    "description": "Excelsa Wonosalam berasal dari kawasan Wonosalam, Jombang, di kaki Gunung Anjasmoro. Kopi ini memiliki karakter yang berbeda dari Arabika dan Robusta, dengan profil yang dapat berkembang ke arah fruity, herbal, rempah, dan manis.",
+    "encyclopedia": {
+      "title": "Excelsa Jombang",
+      "subtitle": "Si Eksentrik dari Lereng Anjasmoro",
+      "summary": "Excelsa Jombang berasal dari kawasan Wonosalam, Jombang, Jawa Timur. Kopi ini memiliki identitas yang berbeda dari Arabika dan Robusta, dengan karakter yang dapat berkembang ke arah fruity, herbal, rempah, manis, dan kompleks.",
+      "character": [
+        "Medium Body",
+        "Fruity",
+        "Herbal",
+        "Spicy",
+        "Complex",
+        "Distinctive"
+      ],
+      "origin": "Wonosalam, Jombang, Jawa Timur",
+      "species": "Excelsa",
+      "whyInteresting": "Excelsa menunjukkan bahwa kopi Indonesia memiliki karakter yang jauh lebih luas daripada profil kopi yang umum dikenal.",
+      "suitableFor": "Coffee explorer, pencinta kopi langka, manual brew, dan penikmat kopi dengan karakter eksperimental.",
+      "funFact": "Kopi Excelsa Jombang telah memperoleh perlindungan Indikasi Geografis."
+    },
     "specs": {
-      "jenis": "Arabika Organik",
-      "origin": "Wamena, Papua",
-      "roast": "Medium Roast",
-      "process": "Washed",
-      "flavor": "Milk Chocolate, Sweet Tobacco, Floral"
+      "jenis": "Excelsa",
+      "origin": "Wonosalam, Jombang, Jawa Timur",
+      "roast": "Medium",
+      "process": "Natural",
+      "flavor": "Fruity, Herbal, Spice, Sweet"
     },
     "sizes": [
-      { "label": "200gr", "price": 105000 },
-      { "label": "500gr", "price": 230000 },
-      { "label": "1kg", "price": 420000 }
+      {
+        "label": "200 g",
+        "price": 39000
+      },
+      {
+        "label": "500 g",
+        "price": 99000
+      },
+      {
+        "label": "1 kg",
+        "price": 185000
+      }
     ],
+    "quizProfile": {
+      "personality": "Si Eksentrik",
+      "bold": 2,
+      "sweet": 4,
+      "fruity": 5,
+      "floral": 2,
+      "earthy": 4,
+      "body": 3,
+      "familiar": 1,
+      "adventure": 5,
+      "highland": 3,
+      "volcanic": 5,
+      "tropical": 4,
+      "eastern": 0
+    },
     "images": [
       "assets/images/products/yeon1.jpg",
       "assets/images/products/yeon2.jpg",
