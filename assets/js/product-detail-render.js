@@ -34,16 +34,15 @@ function renderProductDetail() {
       if (pageTitle) pageTitle.textContent = `${product.name} | KopiKOE`;
       if (nameElem) nameElem.textContent = product.name;
       if (eyebrowElem) eyebrowElem.textContent = product.eyebrow || 'Specialty Coffee';
-      if (priceElem) {
-        const lowestPrice = product.sizes && product.sizes.length > 0
-          ? Math.min(...product.sizes.map(s => s.price))
-          : product.price;
-        priceElem.textContent = `Rp ${lowestPrice.toLocaleString('id-ID')}`;
-      }
       if (taglineElem) taglineElem.textContent = product.tagline || '';
       if (descElem) descElem.textContent = product.description;
       if (skuElem) skuElem.textContent = product.sku || '-';
       if (catElem) catElem.textContent = product.category || '-';
+
+      // Set Harga Awal (Price Range)
+      if (priceElem) {
+        priceElem.textContent = product.priceRange || `Rp ${product.price.toLocaleString('id-ID')}`;
+      }
 
       // Update Gambar Utama
       if (mainImgElem && product.images && product.images.length > 0) {
@@ -61,13 +60,25 @@ function renderProductDetail() {
         `).join('');
       }
 
-      // Render Option Select Ukuran
+      // Inisialisasi Fitur Favorit (Bintang)
+      initWishlistFeature(product);
+
+      // Render Option Select Ukuran & Event Ganti Harga
       const sizeSelect = document.getElementById('ukuranSize');
       if (sizeSelect && product.sizes) {
         sizeSelect.innerHTML = '<option value="">Pilih ukuran</option>' + 
           product.sizes.map(size => `
-            <option value="${size.price}" data-label="${size.label}">${size.label} - Rp ${size.price.toLocaleString('id-ID')}</option>
+            <option value="${size.price}" data-label="${size.label}">${size.label}</option>
           `).join('');
+
+        sizeSelect.addEventListener('change', (e) => {
+          if (e.target.value) {
+            const selectedPrice = parseInt(e.target.value, 10);
+            priceElem.textContent = `Rp ${selectedPrice.toLocaleString('id-ID')}`;
+          } else {
+            priceElem.textContent = product.priceRange;
+          }
+        });
       }
 
       // Render Spesifikasi
@@ -79,6 +90,7 @@ function renderProductDetail() {
           <li><span>Roast:</span> ${product.specs.roast || '-'}</li>
           <li><span>Proses:</span> ${product.specs.process || '-'}</li>
           <li><span>Flavor:</span> ${product.specs.flavor || '-'}</li>
+          <li><span>Spesies:</span> ${product.encyclopedia ? product.encyclopedia.species : '-'}</li>
         `;
       }
 
@@ -91,8 +103,8 @@ function renderProductDetail() {
             <a href="deskripsi-produk.html?id=${rel.id}">
               <img src="${rel.images[0]}" alt="${rel.name}">
               <div class="related-body">
-                <h4>${rel.name}</h4>
-                <p class="related-price">Rp ${rel.price.toLocaleString('id-ID')}</p>
+                <h4>${rel.name.split(' — ')[0]}</h4>
+                <p class="related-price">Mulai Rp ${rel.price.toLocaleString('id-ID')}</p>
               </div>
             </a>
           </div>
@@ -102,18 +114,22 @@ function renderProductDetail() {
       // Fungsionalitas Tombol Tambah ke Keranjang
       const addBtn = document.getElementById('addToCartBtn');
       const grindSelect = document.getElementById('grindSize');
+      
       if (addBtn) {
         addBtn.onclick = () => {
-          const selectedSizeOption = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex] : null;
-          const sizePrice = sizeSelect && sizeSelect.value ? parseInt(sizeSelect.value, 10) : product.price;
-          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? selectedSizeOption.getAttribute('data-label') : '';
-          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : '';
-          const variant = [sizeLabel, grindLabel].filter(Boolean).join(' · ');
+          if (!sizeSelect.value) {
+            showCenterPopup("Ups, Tunggu Dulu!", "Harap pilih ukuran kopi terlebih dahulu sebelum memasukkan ke keranjang.", "warning");
+            return;
+          }
+
+          const sizePrice = parseInt(sizeSelect.value, 10);
+          const selectedSizeOption = sizeSelect.options[sizeSelect.selectedIndex];
+          const sizeLabel = selectedSizeOption.getAttribute('data-label');
+          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : 'Biji Utuh';
+          const variant = `${sizeLabel} · ${grindLabel}`;
 
           if (typeof addToCart === 'function') {
             addToCart(product.name, sizePrice, 1, variant);
-          } else {
-            alert(`Berhasil menambahkan ${product.name} ke keranjang!`);
           }
         };
       }
@@ -122,16 +138,28 @@ function renderProductDetail() {
       const buyNowBtn = document.getElementById('buyNowBtn');
       if (buyNowBtn) {
         buyNowBtn.onclick = () => {
-          const sizePrice = sizeSelect && sizeSelect.value ? parseInt(sizeSelect.value, 10) : product.price;
-          const selectedSizeOption = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex] : null;
-          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? selectedSizeOption.getAttribute('data-label') : '';
-          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : '';
-          const variant = [sizeLabel, grindLabel].filter(Boolean).join(' · ');
-
-          if (typeof addToCart === 'function') {
-            addToCart(product.name, sizePrice, 1, variant);
-            window.location.href = 'payment.html';
+          if (!sizeSelect.value) {
+            showCenterPopup("Ups, Tunggu Dulu!", "Harap pilih ukuran kopi terlebih dahulu sebelum melakukan pembelian.", "warning");
+            return;
           }
+
+          const sizePrice = parseInt(sizeSelect.value, 10);
+          const selectedSizeOption = sizeSelect.options[sizeSelect.selectedIndex];
+          const sizeLabel = selectedSizeOption.getAttribute('data-label');
+          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : 'Biji Utuh';
+          const variant = `${sizeLabel} · ${grindLabel}`;
+
+          const directCheckoutItem = [{
+            name: product.name,
+            price: sizePrice,
+            qty: 1,
+            variant: variant
+          }];
+
+          localStorage.setItem('kopikoe_direct_checkout', JSON.stringify(directCheckoutItem));
+          localStorage.setItem('is_direct_checkout', 'true');
+
+          window.location.href = 'payment.html';
         };
       }
 
@@ -143,6 +171,45 @@ function renderProductDetail() {
       }
     })
     .catch(err => console.error("Gagal memuat detail produk:", err));
+}
+
+// Logika Favorit (Bintang) Storage
+function initWishlistFeature(product) {
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  if (!wishlistBtn) return;
+
+  let wishlist = JSON.parse(localStorage.getItem('kopikoe_wishlist')) || [];
+  
+  const isWishlisted = wishlist.some(item => item.id === product.id);
+  if (isWishlisted) {
+    wishlistBtn.classList.add('active');
+  }
+
+  wishlistBtn.addEventListener('click', () => {
+    let currentWishlist = JSON.parse(localStorage.getItem('kopikoe_wishlist')) || [];
+    const index = currentWishlist.findIndex(item => item.id === product.id);
+
+    if (index > -1) {
+      currentWishlist.splice(index, 1);
+      wishlistBtn.classList.remove('active');
+      if (typeof showToast === 'function') {
+        showToast('Dihapus dari daftar favorit.', 'error');
+      }
+    } else {
+      currentWishlist.push({
+        id: product.id,
+        name: product.name,
+        price: product.priceRange || product.price,
+        image: product.images && product.images[0] ? product.images[0] : ''
+      });
+      wishlistBtn.classList.add('active');
+      if (typeof showToast === 'function') {
+        showToast('Berhasil! Ditambahkan ke favorit ⭐', 'success');
+      }
+    }
+
+    localStorage.setItem('kopikoe_wishlist', JSON.stringify(currentWishlist));
+  });
 }
 
 function changeMainImage(src, thumbElem) {

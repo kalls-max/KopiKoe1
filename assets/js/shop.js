@@ -8,6 +8,21 @@ function getJsonPathShop() {
   return window.location.pathname.includes('/pages/') ? '../data/product.json' : 'data/product.json';
 }
 
+// Fungsi pembersih nama untuk mengambil bagian nama produk saja di shop
+function getCleanShopName(fullName) {
+  if (!fullName) return 'Produk Kopi';
+  const separators = [' — ', ' – ', ' - ', '—', '–'];
+  for (let sep of separators) {
+    if (fullName.includes(sep)) {
+      const parts = fullName.split(sep);
+      if (parts[1] && parts[1].trim() !== '') {
+        return parts[1].trim();
+      }
+    }
+  }
+  return fullName;
+}
+
 function initShopModule() {
   const gridContainer = document.getElementById('productGrid');
   const noResultMsg = document.getElementById('shopNoResult');
@@ -46,17 +61,36 @@ function renderProductsGrid(products) {
 
   if (noResultMsg) noResultMsg.style.display = 'none';
 
-  gridContainer.innerHTML = products.map(product => `
-    <a href="deskripsi-produk.html?id=${product.id}" class="shop-product-card">
-      <div class="shop-product-img">
-        <img src="${product.images && product.images[0] ? product.images[0] : ''}" alt="${product.name}" loading="lazy">
-      </div>
-      <div class="shop-product-info">
-        <h3>${product.name}</h3>
-        <p class="shop-product-price">Rp${product.price.toLocaleString('id-ID')}</p>
-      </div>
-    </a>
-  `).join('');
+  gridContainer.innerHTML = products.map(product => {
+    let displayPrice = 'Rp 0';
+    try {
+      if (product.sizes && Array.isArray(product.sizes) && product.sizes.length > 0) {
+        displayPrice = `Mulai Rp ${Number(product.sizes[0].price).toLocaleString('id-ID')}`;
+      } else if (product.priceRange && typeof product.priceRange === 'string') {
+        const parts = product.priceRange.split(/[-–]/);
+        displayPrice = `Mulai ${parts[0].trim()}`;
+      } else if (product.price !== undefined && product.price !== null) {
+        displayPrice = `Rp ${Number(product.price).toLocaleString('id-ID')}`;
+      }
+    } catch (e) {
+      displayPrice = product.priceRange || 'Cek Detail';
+    }
+
+    const productName = getCleanShopName(product.name);
+    const productImage = product.images && product.images[0] ? product.images[0] : '';
+
+    return `
+      <a href="deskripsi-produk.html?id=${product.id}" class="shop-product-card">
+        <div class="shop-product-img">
+          <img src="${productImage}" alt="${productName}" loading="lazy">
+        </div>
+        <div class="shop-product-info">
+          <h3>${productName}</h3>
+          <p class="shop-product-price">${displayPrice}</p>
+        </div>
+      </a>
+    `;
+  }).join('');
 }
 
 function initShopControls() {
@@ -70,13 +104,14 @@ function initShopControls() {
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const shopDropdown = document.getElementById('shopDropdown');
 
-  // Munculkan / Sembunyikan Dropdown & Redupkan Belakangnya saat Search Focus
   if (searchInput && searchDropdownGrid && searchOverlay) {
+    // Tampilkan rekomendasi hanya saat input di-klik/fokus pertama kali
     searchInput.addEventListener('focus', () => {
       searchDropdownGrid.style.display = 'block';
       searchOverlay.classList.add('show');
     });
 
+    // Sembunyikan kalau klik di luar area pencarian
     document.addEventListener('click', (e) => {
       const shopSearchContainer = document.querySelector('.shop-search');
       if (shopSearchContainer && !shopSearchContainer.contains(e.target)) {
@@ -86,7 +121,7 @@ function initShopControls() {
     });
   }
 
-  // Klik salah satu kategori di dropdown 4x1
+  // Event untuk kotak rekomendasi yang di-klik
   dropItems.forEach(item => {
     item.addEventListener('click', () => {
       const keyword = item.getAttribute('data-keyword');
@@ -103,14 +138,31 @@ function initShopControls() {
     });
   });
 
-  // Pencarian manual via input text
+  // UBAHAN UTAMA: Ganti event 'input' menjadi 'keydown' khusus tombol Enter
   if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const keyword = e.target.value.trim();
-      filterAndRender(keyword);
+    searchInput.addEventListener('keydown', (e) => {
+      // Cek apakah tombol yang ditekan adalah "Enter"
+      if (e.key === 'Enter') {
+        e.preventDefault(); // Mencegah form auto-submit bawaan browser
+        
+        const keyword = e.target.value.trim();
+        filterAndRender(keyword); // Jalankan filter pencarian
+
+        // Sembunyikan 4 kotak rekomendasi kopi
+        if (searchDropdownGrid) {
+          searchDropdownGrid.style.display = 'none';
+        }
+        if (searchOverlay) {
+          searchOverlay.classList.remove('show');
+        }
+        
+        // Hapus kursor dari input (supaya keyboard hp otomatis turun)
+        searchInput.blur();
+      }
     });
   }
 
+  // Fungsi logik filter pencarian
   function filterAndRender(keyword) {
     const lowerKeyword = keyword.toLowerCase();
 
@@ -125,7 +177,7 @@ function initShopControls() {
       } else if (lowerKeyword === 'robusta') {
         return jenis.includes('robusta');
       } else if (lowerKeyword === 'liberica') {
-        return jenis.includes('liberica');
+        return jenis.includes('liberica') || jenis.includes('liberika');
       } else if (lowerKeyword === 'excelsa') {
         return jenis.includes('excelsa');
       } else {
@@ -136,7 +188,7 @@ function initShopControls() {
     renderProductsGrid(filtered);
   }
 
-  // Toggle View Layout Grid (Rect / Square)
+  // Logik View Grid (Kotak vs Persegi Panjang)
   if (viewRectBtn && viewSquareBtn && gridContainer) {
     viewRectBtn.addEventListener('click', () => {
       gridContainer.setAttribute('data-view', 'rect');
@@ -151,7 +203,7 @@ function initShopControls() {
     });
   }
 
-  // Hamburger Menu Toggle
+  // Logik Hamburger Menu Mobile
   if (hamburgerBtn && shopDropdown) {
     hamburgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();

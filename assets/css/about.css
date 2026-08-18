@@ -1,11 +1,11 @@
 :root {
-  --coffee-dark: #33211B;
-  --coffee-brown: #6F483A;
-  --platinum: #E5E4E2;
-  --red-accent: #E22323;
-  --orange-accent: #F7941D;
-  --sky-accent: #B8D3E8;
-  --olive-accent: #6B9800;
+  --coffee-dark: #3E2723;
+  --coffee-brown: #795548;
+  --pastel-bg: #F4F1EA;       
+  --pastel-card: #FFFFFF;
+  --pastel-border: #D7CCC8;   
+  --orange-accent: #E6A15C;   
+  --red-accent: #D9534F;
   --white: #FFFFFF;
 }
 
@@ -16,14 +16,21 @@ html, body {
   overflow-x: hidden; 
   box-sizing: border-box;
   font-family: 'Fredoka', sans-serif;
+  background-color: var(--pastel-bg);
+  color: var(--coffee-dark);
 }
 
 .about-hero-full {
   margin: 0 !important;
   padding: 0 !important;
   width: 100vw !important;
-  height: 100vh !important;
-  background: url('../images/hero/heroA2.jpeg') center/cover no-repeat !important;
+  height: 28vh !important; 
+  min-height: 220px;
+  /* GANTI PATH DI BAWAH INI DENGAN LOKASI GAMBAR BANNERMU */
+  background-image: url('../images/hero/belakang.jpeg') !important; 
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
   position: relative;
   left: 50%;
   right: 50%;
@@ -31,16 +38,46 @@ html, body {
   margin-right: -50vw !important;
 }
 
+
+
 .hero-content {
-  position: relative;
-  z-index: 2;
-  color: var(--white);
+  position: absolute;
+  bottom: 0; 
+  left: 50%;
+  transform: translate(-50%, 50%); 
+  z-index: 10;
+  width: 100%;
   padding: 0 20px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 5rem;
+  letter-spacing: 6px;
+  line-height: 1;
+  margin: 0 auto;
+  max-width: 1300px;
+  color: var(--coffee-dark); 
+  text-shadow: 
+    10px 10px 0 var(--pastel-bg), 
+    -10px -10px 0 var(--pastel-bg), 
+    10px -10px 0 var(--pastel-bg), 
+    -10px 10px 0 var(--pastel-bg),
+    0px 10px 0 var(--pastel-bg),
+    0px -10px 0 var(--pastel-bg),
+    10px 0px 0 var(--pastel-bg),
+    -10px 0px 0 var(--pastel-bg),
+    5px 5px 0 var(--pastel-bg), 
+    -5px -5px 0 var(--pastel-bg), 
+    5px 5px 0 var(--pastel-bg), 
+    -5px 5px 0 var(--pastel-bg),
+    0 15px 25px rgba(0,0,0,0.25);
 }
 
 .about-story-section {
-  padding: 100px 8%;
-  background-color: var(--platinum);
+  padding: 130px 8% 140px 8%;
+  background-color: var(--pastel-bg);
 }
 
 .story-wrapper {
@@ -60,9 +97,7 @@ html, body {
   max-width: 480px;
   height: 420px;
   object-fit: cover;
-  border-radius: 24px;
-  border: 2px solid var(--coffee-dark);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+
 }
 
 .story-text-box {
@@ -81,7 +116,7 @@ html, body {
   font-style: italic;
   font-size: 1.1rem;
   color: var(--coffee-brown);
-  border-left: 3px solid var(--coffee-dark);
+  border-left: 3px solid var(--orange-accent);
   padding-left: 15px;
   margin: 0 0 15px 0;
   line-height: 1.6;
@@ -93,10 +128,15 @@ html, body {
   font-size: 1.1rem;
 }
 
+.about-products-container {
+  margin-top: 80px !important;
+}
+
 .business-partner-section {
   padding: 80px 8% 100px;
-  background-color: var(--white);
+  background-color: var(--pastel-card);
   text-align: center;
+  border-top: 1.5px solid var(--pastel-border);
 }
 
 .partner-logos-wrapper {
@@ -106,15 +146,16 @@ html, body {
 .partner-title {
   font-size: 0.85rem;
   letter-spacing: 3px;
-  color: rgba(111, 72, 58, 0.65);
+  color: var(--coffee-brown);
   margin-bottom: 25px;
+  font-weight: 600;
 }
 
 .partner-logos {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
@@ -122,18 +163,20 @@ html, body {
   font-weight: 600;
   color: var(--coffee-brown);
   padding: 12px 24px;
-  border: 1.5px dashed rgba(111, 72, 58, 0.25);
+  border: 1.5px dashed var(--pastel-border);
   border-radius: 12px;
   font-size: 0.9rem;
+  background: var(--pastel-bg);
 }
 
 .business-cta-card {
-  background: var(--platinum);
-  border: 2px solid var(--coffee-dark);
+  background: var(--pastel-bg);
+  border: 2px solid var(--pastel-border);
   border-radius: 24px;
   padding: 50px 30px;
   max-width: 700px;
   margin: 0 auto;
+  box-shadow: 0 10px 25px rgba(62, 39, 35, 0.04);
 }
 
 .business-cta-card h2 {
@@ -167,10 +210,34 @@ html, body {
 }
 
 @media (max-width: 768px) {
-  .hero-title-main {
-    font-size: 2.2rem;
+  .about-hero-full {
+    height: 22vh !important;
+  }
+  
+  .hero-content h1 {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    text-shadow: 
+      6px 6px 0 var(--pastel-bg), 
+      -6px -6px 0 var(--pastel-bg), 
+      6px -6px 0 var(--pastel-bg), 
+      -6px 6px 0 var(--pastel-bg),
+      0px 6px 0 var(--pastel-bg),
+      0px -6px 0 var(--pastel-bg),
+      6px 0px 0 var(--pastel-bg),
+      -6px 0px 0 var(--pastel-bg),
+      0 10px 20px rgba(0,0,0,0.2);
+  }
+  
+  .about-story-section {
+    padding-top: 100px; 
+    padding-bottom: 80px;
   }
 
+  .about-products-container {
+    margin-top: 50px !important;
+  }
+  
   .story-wrapper {
     flex-direction: column;
     gap: 35px;
@@ -184,6 +251,10 @@ html, body {
 
   .story-image {
     height: 300px;
+  }
+
+  .about-products-container .related-wrapper {
+    grid-template-columns: 1fr !important;
   }
 
   .business-cta-card {

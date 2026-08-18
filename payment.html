@@ -8,11 +8,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/payment.css?v=1787029332">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/jpeg" href="assets/images/logo/logo.png">
 </head>
 <body>
     <header class="navbar-header">
         <div class="nav-container">
-            <a href="index.html" class="logo">KopiKOE<span></span></a>
+            <a href="index.html" class="logo">KopiKoe<span></span></a>
             <a href="shop.html" class="btn btn-outline btn-sm">Kembali ke Toko</a>
         </div>
     </header>
@@ -232,6 +234,7 @@
         </form>
     </div>
 
+    <script src="assets/js/script.js"></script>
     <script>
         function formatRupiah(amount) {
             return 'Rp ' + Math.round(amount).toLocaleString('id-ID');
@@ -251,29 +254,39 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadSavedCustomerDetails();
 
-            // Mengambil data keranjang dari key localStorage 'kopikoe_cart'
-            const cartData = JSON.parse(localStorage.getItem('kopikoe_cart')) || [];
+            let orderItems = [];
+            const directCheckoutData = localStorage.getItem('kopikoe_direct_checkout');
+            const isDirectCheckout = localStorage.getItem('is_direct_checkout');
+
+            if (directCheckoutData && isDirectCheckout === 'true') {
+                orderItems = JSON.parse(directCheckoutData);
+            } else {
+                localStorage.removeItem('kopikoe_direct_checkout');
+                orderItems = JSON.parse(localStorage.getItem('kopikoe_cart')) || [];
+            }
+
             const itemsList = document.getElementById('checkoutItemsList');
             const subtotalEl = document.getElementById('summarySubtotal');
             const taxEl = document.getElementById('summaryTax');
             const grandTotalEl = document.getElementById('summaryGrandTotal');
 
-            if (!cartData || cartData.length === 0) {
-                itemsList.innerHTML = '<p style="font-size:0.85rem; color: var(--coffee-brown);">Keranjang belanja kosong. <a href="shop.html" style="color:var(--orange-accent); font-weight:600;">Kembali berbelanja</a>.</p>';
+            if (!orderItems || orderItems.length === 0) {
+                itemsList.innerHTML = '<p style="font-size:0.85rem; color: var(--coffee-brown);">Tidak ada produk yang dicheckout. <a href="shop.html" style="color:var(--orange-accent); font-weight:600;">Kembali berbelanja</a>.</p>';
                 return;
             }
 
             let subtotal = 0;
             itemsList.innerHTML = '';
-            cartData.forEach(item => {
-                const itemTotal = item.price * item.qty;
+            orderItems.forEach(item => {
+                const itemTotal = item.price * (item.qty || item.quantity || 1);
                 subtotal += itemTotal;
                 const row = document.createElement('div');
                 row.className = 'summary-item';
                 row.innerHTML = `
                     <div>
                         <strong>${item.name}</strong>
-                        <div style="font-size: 0.75rem; color: var(--coffee-brown);">Qty: ${item.qty}</div>
+                        ${item.variant ? `<div style="font-size: 0.75rem; color: var(--orange-accent); font-weight:500;">${item.variant}</div>` : ''}
+                        <div style="font-size: 0.75rem; color: var(--coffee-brown);">Qty: ${item.qty || item.quantity || 1}</div>
                     </div>
                     <span>${formatRupiah(itemTotal)}</span>
                 `;
@@ -334,9 +347,25 @@
                 localStorage.removeItem('kopikoe_customer_details');
             }
 
-            alert('Pembayaran berhasil diverifikasi! Terima kasih telah berbelanja di KopiKOE. Kopi kamu akan disangrai dan dikirim dalam 24 jam.');
-            localStorage.removeItem('kopikoe_cart'); // Mengosongkan keranjang setelah checkout sukses
-            window.location.href = 'index.html';
+            // Memanggil pop-up kotak tengah menggantikan alert bawaan browser
+            showCenterPopup(
+                "Pembayaran Berhasil!", 
+                "Pembayaran berhasil diverifikasi! Terima kasih telah berbelanja di KopiKoe. Kopi kamu akan disangrai dan dikirim dalam 24 jam.", 
+                "success"
+            );
+
+            // Berpindah halaman setelah user melihat pop-up
+            setTimeout(() => {
+                const isDirect = localStorage.getItem('is_direct_checkout');
+                if (isDirect === 'true') {
+                    localStorage.removeItem('kopikoe_direct_checkout');
+                    localStorage.removeItem('is_direct_checkout');
+                } else {
+                    localStorage.removeItem('kopikoe_cart');
+                }
+
+                window.location.href = 'index.html';
+            }, 3500);
         }
     </script>
 </body>

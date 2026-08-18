@@ -1,9 +1,9 @@
 :root {
-  --coffee-dark: #33211B;
-  --coffee-brown: #6F483A;
-  --platinum: #E5E4E2;
-  --red-accent: #E22323;
-  --orange-accent: #F7941D;
+  --coffee-dark: #3E2723;
+  --coffee-brown: #795548;
+  --platinum: #F4F1EA;
+  --red-accent: #D9534F;
+  --orange-accent: #E6A15C;
   --sky-accent: #B8D3E8;
   --olive-accent: #6B9800;
   --white: #FFFFFF;
@@ -24,7 +24,7 @@ body {
 
 .img-placeholder {
   background-color: var(--platinum);
-  border: 2px dashed rgba(111, 72, 58, 0.45);
+  border: 2px dashed rgba(121, 85, 72, 0.45);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -144,7 +144,7 @@ body {
   margin: 50px auto;
   max-width: 1350px;
   width: 92%;
-  border: 1px solid rgba(111, 72, 58, 0.25);
+  border: 1px solid rgba(121, 85, 72, 0.25);
 }
 
 .badge-bestseller-img-wrapper {
@@ -155,8 +155,8 @@ body {
 }
 
 .badge-bestseller-img {
-  width: 120px;
-  height: 120px;
+  width: 90px !important;
+  height: 90px !important;
   object-fit: contain;
   filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
 }
@@ -209,7 +209,7 @@ body {
   background: var(--white);
   padding: 20px;
   border-radius: 20px;
-  border: 2px solid rgba(111, 72, 58, 0.2);
+  border: 2px solid rgba(121, 85, 72, 0.2);
   text-align: center;
   width: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -234,49 +234,50 @@ body {
 }
 
 /* ============================================================
-    PART 3: KOPI MOE (QUIZ)
+    PART 3: KOPI MOE (QUIZ) & HASIL KUIS
    ============================================================ */
 .section-kopimoe {
-  padding: 80px 8%;
+  padding: 60px 8%;
   text-align: center;
   background: var(--white);
-  margin: 40px 0;
+  margin: 30px 0;
 }
 
 .quiz-intro {
   font-size: 1.1rem;
   color: var(--coffee-brown);
-  margin-bottom: 40px;
+  margin-bottom: 25px;
 }
 
 .quiz-wrapper {
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
-  position: relative;
-  min-height: 380px;
 }
 
 .quiz-card-stack {
   position: relative;
   width: 100%;
-  height: 100%;
 }
 
 .quiz-card {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  display: none;
   background: var(--platinum);
   border: 2px solid var(--coffee-dark);
   border-radius: 20px;
-  padding: 35px 25px;
+  padding: 30px 25px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.08);
   box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transform: scale(0.9) translateY(30px);
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;
+  text-align: left;
+  animation: fadeInQuiz 0.3s ease-in-out;
+}
+
+.quiz-card.active {
+  display: block;
+}
+
+@keyframes fadeInQuiz {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .step-badge {
@@ -291,10 +292,12 @@ body {
 }
 
 .quiz-question {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--coffee-dark);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
   line-height: 1.4;
+  text-align: center;
 }
 
 .quiz-options {
@@ -313,7 +316,8 @@ body {
   cursor: pointer;
   transition: all 0.25s ease;
   font-family: 'Fredoka', sans-serif;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
 
 .quiz-opt-btn:hover {
@@ -323,18 +327,102 @@ body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.quiz-card.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: scale(1) translateY(0);
-  z-index: 5;
+/* KOTAK HASIL KUIS YANG RAPI DAN ESTETIK */
+#resultSection {
+  background: var(--platinum);
+  border: 2px solid var(--coffee-dark);
+  border-radius: 20px;
+  padding: 35px 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+  text-align: center;
+  animation: fadeInResult 0.4s ease-in-out;
 }
 
-.quiz-card.shuffle-out {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateX(-120%) rotate(-6deg);
-  transition: transform 0.4s ease-in, opacity 0.3s ease-in;
+@keyframes fadeInResult {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.quiz-result-card h3#coffeeTitle {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 1.8rem;
+  color: var(--coffee-dark);
+  margin-bottom: 6px;
+}
+
+.quiz-result-card p#coffeeSub {
+  font-size: 0.95rem;
+  color: var(--coffee-brown);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.quiz-result-img-box {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 15px auto;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--white);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  background: var(--white);
+}
+
+.quiz-result-card img#coffeeImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.match-score-badge {
+  display: inline-block;
+  background: rgba(230, 161, 92, 0.15);
+  color: var(--coffee-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  border: 1px solid var(--orange-accent);
+}
+
+.quiz-result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.quiz-result-actions .syarat-btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quiz-result-actions .btn-buy {
+  background: var(--coffee-dark);
+  color: var(--white);
+  border: 2px solid var(--coffee-dark);
+}
+
+.quiz-result-actions .btn-buy:hover {
+  background: var(--coffee-brown);
+  border-color: var(--coffee-brown);
+}
+
+.quiz-result-actions .btn-reset {
+  background: var(--white);
+  color: var(--coffee-dark);
+  border: 2px solid var(--coffee-dark);
+}
+
+.quiz-result-actions .btn-reset:hover {
+  background: rgba(62, 39, 35, 0.08);
 }
 
 /* ============================================================
@@ -357,7 +445,7 @@ body {
 
 .interactive-area {
   position: relative;
-  border: 2px dashed rgba(111, 72, 58, 0.55);
+  border: 2px dashed rgba(121, 85, 72, 0.55);
   border-radius: 24px;
   height: 380px;
   padding: 25px;
@@ -434,7 +522,7 @@ body {
 
 .ensi-card-text h3 {
   font-size: 1.4rem;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   color: var(--coffee-dark);
 }
 
@@ -521,7 +609,7 @@ body {
 
 .bar-menu a.active, 
 .bar-menu a:hover { 
-  background: rgba(111, 72, 58, 0.12); 
+  background: rgba(121, 85, 72, 0.12); 
   color: var(--coffee-dark); 
 }
 
@@ -584,6 +672,7 @@ body {
   cursor: pointer;
   background-color: transparent;
   transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
 .star-icon {
@@ -595,13 +684,13 @@ body {
 }
 
 .star-object:hover {
-  background-color: rgba(247, 148, 29, 0.15);
+  background-color: rgba(231, 161, 92, 0.15);
 }
 
 .star-object:hover .star-icon {
   transform: rotate(360deg) scale(1.25);
   color: var(--orange-accent);
-  filter: drop-shadow(0 0 5px rgba(247, 148, 29, 0.6));
+  filter: drop-shadow(0 0 5px rgba(231, 161, 92, 0.6));
 }
 
 /* ============================================================
@@ -674,7 +763,7 @@ body {
 
 .footer-desc {
   font-size: 0.88rem;
-  color: rgba(229, 228, 226, 0.7);
+  color: rgba(244, 241, 234, 0.7);
   line-height: 1.6;
 }
 
@@ -696,7 +785,7 @@ body {
 }
 
 .footer-col ul li a {
-  color: rgba(229, 228, 226, 0.6);
+  color: rgba(244, 241, 234, 0.6);
   text-decoration: none;
   font-size: 0.88rem;
   transition: color 0.2s ease;
@@ -711,7 +800,7 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 0.88rem;
-  color: rgba(229, 228, 226, 0.6);
+  color: rgba(244, 241, 234, 0.6);
 }
 
 .social-icons {
@@ -798,7 +887,7 @@ body {
 .cart-drawer-header h3 {
   margin: 0;
   font-family: 'Paytone One', sans-serif;
-  color: #33211B;
+  color: var(--coffee-dark);
   font-size: 1.2rem;
 }
 
@@ -818,11 +907,10 @@ body {
 }
 
 .drawer-item {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto auto;
-  column-gap: 10px;
-  row-gap: 4px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   padding: 14px 16px;
   border: 1px solid #e8e2dc;
   border-radius: 14px;
@@ -831,32 +919,114 @@ body {
 }
 
 .drawer-item-name {
-  grid-column: 1;
-  grid-row: 1;
-  align-self: center;
   font-weight: 600;
   font-size: 0.95rem;
   margin: 0;
-  color: #33211B;
+  color: var(--coffee-dark);
+  padding-right: 25px;
 }
 
-.drawer-item-variant {
-  grid-column: 1;
-  grid-row: 2;
+/* ============================================================
+    PART 11: EDIT VARIANT POPUP DI KERANJANG (SHOPEE STYLE)
+   ============================================================ */
+.drawer-item-variant-container {
+  position: relative;
+  width: fit-content;
+}
+
+.drawer-item-variant-btn {
+  background: var(--platinum);
+  border: 1px solid rgba(121, 85, 72, 0.25);
+  font-size: 0.78rem;
+  color: var(--coffee-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-align: left;
+  font-family: 'Fredoka', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.drawer-item-variant-btn:hover {
+  border-color: var(--coffee-dark);
+  background: #eae5dc;
+}
+
+.variant-dropdown-popup {
+  position: absolute;
+  top: 115%;
+  left: 0;
+  background: var(--white);
+  border: 1.5px solid var(--coffee-dark);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+  z-index: 999999;
+  width: 230px;
+  display: none;
+  animation: fadeInPopup 0.2s ease-in-out;
+}
+
+@keyframes fadeInPopup {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.variant-dropdown-popup.show {
+  display: block;
+}
+
+.variant-popup-title {
   font-size: 0.8rem;
-  color: #888;
-  margin: 0;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--coffee-dark);
+}
+
+.variant-options-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.variant-opt-chip {
+  background: var(--platinum);
+  border: 1px solid rgba(121, 85, 72, 0.3);
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Fredoka', sans-serif;
+  color: var(--coffee-dark);
+}
+
+.variant-opt-chip:hover {
+  background: #ded7cb;
+}
+
+.variant-opt-chip.active {
+  background: var(--coffee-dark);
+  color: var(--white);
+  border-color: var(--coffee-dark);
+}
+/* ============================================================ */
+
+.drawer-item-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4px;
 }
 
 .drawer-item-qty {
-  grid-column: 2;
-  grid-row: 3;
-  align-self: end;
-  justify-self: end;
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin: 0;
   border: 1px solid #ddd;
   border-radius: 30px;
   padding: 3px 6px;
@@ -893,20 +1063,15 @@ body {
 }
 
 .drawer-item-price {
-  grid-column: 1;
-  grid-row: 3;
-  align-self: end;
   font-weight: 600;
   font-size: 0.9rem;
-  color: #F7941D;
-  margin: 0;
+  color: var(--orange-accent);
 }
 
 .drawer-item-remove {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: start;
-  justify-self: end;
+  position: absolute;
+  top: 14px;
+  right: 14px;
   background: none;
   border: none;
   color: #9a9a9a;
@@ -920,7 +1085,7 @@ body {
 }
 
 .drawer-item-remove:hover {
-  color: #E22323;
+  color: var(--red-accent);
   background: #fdeaea;
 }
 
@@ -936,7 +1101,7 @@ body {
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 8px;
-  color: #33211B;
+  color: var(--coffee-dark);
 }
 
 .cart-tax-note {
@@ -947,7 +1112,7 @@ body {
 
 .btn-checkout-drawer {
   width: 100%;
-  background: #F7941D;
+  background: var(--orange-accent);
   color: #ffffff;
   border: none;
   padding: 14px;
@@ -958,167 +1123,11 @@ body {
 }
 
 .btn-checkout-drawer:hover {
-  background: #e08315;
+  background: #d48b48;
 }
 
 /* ============================================================
-    PART 10: STYLING HALAMAN ABOUT (TENTANG KAMI)
-   ============================================================ */
-.about-hero-full {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.about-story-section {
-  padding: 100px 8%;
-  background-color: var(--platinum);
-}
-
-.story-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.story-img-box {
-  flex: 1;
-}
-
-.story-image {
-  width: 100%;
-  max-width: 480px;
-  height: 420px;
-  object-fit: cover;
-  border-radius: 24px;
-  border: 2px solid var(--coffee-dark);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
-}
-
-.story-text-box {
-  flex: 1;
-}
-
-.story-heading {
-  font-family: 'Paytone One', sans-serif;
-  font-size: 2.4rem;
-  color: var(--coffee-dark);
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
-
-.story-quote {
-  font-style: italic;
-  font-size: 1.1rem;
-  color: var(--coffee-brown);
-  border-left: 3px solid var(--coffee-dark);
-  padding-left: 15px;
-  margin: 0 0 15px 0;
-  line-height: 1.6;
-}
-
-.story-price-tag {
-  font-weight: 600;
-  color: var(--orange-accent);
-  font-size: 1.1rem;
-}
-
-.business-partner-section {
-  padding: 80px 8% 100px;
-  background-color: var(--white);
-  text-align: center;
-}
-
-.partner-logos-wrapper {
-  margin-bottom: 60px;
-}
-
-.partner-title {
-  font-size: 0.85rem;
-  letter-spacing: 3px;
-  color: rgba(111, 72, 58, 0.65);
-  margin-bottom: 25px;
-}
-
-.partner-logos {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.partner-logo-item {
-  font-weight: 600;
-  color: var(--coffee-brown);
-  padding: 12px 24px;
-  border: 1.5px dashed rgba(111, 72, 58, 0.25);
-  border-radius: 12px;
-  font-size: 0.9rem;
-  background: var(--platinum);
-}
-
-.business-cta-card {
-  background: var(--platinum);
-  border: 2px solid var(--coffee-dark);
-  border-radius: 24px;
-  padding: 50px 30px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.business-cta-card h2 {
-  font-family: 'Paytone One', sans-serif;
-  font-size: 2.2rem;
-  color: var(--coffee-dark);
-  margin-bottom: 8px;
-}
-
-.business-cta-card p {
-  color: var(--coffee-brown);
-  margin-bottom: 25px;
-  font-size: 1.1rem;
-}
-
-.btn-wa-business {
-  display: inline-block;
-  background: #25d366;
-  color: var(--white);
-  padding: 12px 30px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  border: 1.5px solid #1ebe57;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn-wa-business:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-}
-
-/* ============================================================
-    PART 11: RESPONSIF MOBILE (LAYAR <= 768px)
+    RESPONSIF MOBILE (LAYAR <= 768px)
    ============================================================ */
 @media (max-width: 768px) {
   .kopinya-container {
@@ -1231,23 +1240,139 @@ body {
   .social-icons {
     justify-content: center !important;
   }
+}
 
-  .story-wrapper {
-    flex-direction: column;
-    gap: 35px;
-    text-align: center;
-  }
+/* ============================================================
+    PART 9: TOAST NOTIFICATION (POPUP INFO)
+   ============================================================ */
+.toast-container {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 999999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
 
-  .story-quote {
-    border-left: none;
-    padding-left: 0;
-  }
+.toast-notification {
+  min-width: 250px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--white);
+  color: var(--coffee-dark);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateX(120%);
+  opacity: 0;
+  animation: slideInToast 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards, fadeOutToast 0.4s ease forwards 2.5s;
+}
 
-  .story-image {
-    height: 300px;
-  }
+.toast-notification.success { border-left: 6px solid var(--olive-accent); }
+.toast-notification.error { border-left: 6px solid var(--red-accent); }
+.toast-icon { font-size: 1.3rem; line-height: 1; }
 
-  .business-cta-card {
-    padding: 35px 20px;
+@keyframes slideInToast { to { transform: translateX(0); opacity: 1; } }
+@keyframes fadeOutToast { to { transform: translateX(120%); opacity: 0; } }
+
+@media (max-width: 768px) {
+  .toast-container {
+    top: 20px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: 90%;
+    align-items: center;
   }
+  .toast-notification {
+    min-width: unset;
+    width: 100%;
+    transform: translateY(-150%);
+    animation: slideDownToast 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards, fadeUpToast 0.4s ease forwards 2.5s;
+  }
+  @keyframes slideDownToast { to { transform: translateY(0); opacity: 1; } }
+  @keyframes fadeUpToast { to { transform: translateY(-150%); opacity: 0; } }
+}
+
+/* ============================================================
+    PART 10: CENTER POPUP MODAL (PENGGANTI ALERT BROWSER)
+   ============================================================ */
+.custom-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.custom-popup-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.custom-popup-box {
+  background: var(--white);
+  width: 90%;
+  max-width: 380px;
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  transform: scale(0.8) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.custom-popup-overlay.show .custom-popup-box {
+  transform: scale(1) translateY(0);
+}
+
+.custom-popup-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  line-height: 1;
+}
+
+.custom-popup-title {
+  font-family: 'Paytone One', sans-serif;
+  font-size: 1.6rem;
+  color: var(--coffee-dark);
+  margin-bottom: 10px;
+}
+
+.custom-popup-message {
+  font-size: 1.05rem;
+  color: var(--coffee-brown);
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+.custom-popup-btn {
+  background: var(--coffee-dark);
+  color: var(--white);
+  border: none;
+  padding: 12px 35px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.custom-popup-btn:hover {
+  background: var(--orange-accent);
+  transform: translateY(-2px);
 }

@@ -325,7 +325,7 @@ input:focus, select:focus {
 
 /* Ringkasan Pesanan */
 .order-summary {
-    background-color: var(--bg-secondary);
+    background-color: var(--white);
     border: 1.5px solid var(--border-light);
     border-radius: 20px;
     padding: 28px;

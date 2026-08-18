@@ -1,26 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderAboutProducts();
-  renderAboutHero(); // Tambahkan pemanggilan fungsi ini
+  // renderAboutHero(); // Dimatikan agar background CSS manual tidak tertimpa data JSON
 });
 
 function getJsonPathAbout() {
   return window.location.pathname.includes('/pages/') ? '../data/product.json' : 'data/product.json';
 }
 
-// Fungsi untuk memasang foto hero dari JSON ke CSS
-function renderAboutHero() {
-  fetch(getJsonPathAbout())
-    .then(res => res.json())
-    .then(products => {
-      const heroSection = document.querySelector('.about-hero-full');
-      if (heroSection && products.length > 0) {
-        // Mengambil foto dari produk pertama sebagai background hero
-        heroSection.style.backgroundImage = `url('${products[0].images[0]}')`;
-      }
-    })
-    .catch(err => console.error("Gagal memuat hero:", err));
-}
-
+// Fungsi untuk merender list produk unggulan di halaman about
 function renderAboutProducts() {
   const container = document.getElementById('aboutProductList');
   if (!container) return;
@@ -28,14 +15,14 @@ function renderAboutProducts() {
   fetch(getJsonPathAbout())
     .then(res => res.json())
     .then(products => {
-      const featured = products.slice(0, 3);
+      const featured = products.slice(0, 3); // Ambil 3 produk pertama
       container.innerHTML = featured.map(p => `
-        <div class="related-card" style="background:#fff; border-radius:16px; overflow:hidden; border:1.5px solid rgba(111, 72, 58, 0.2); text-align:left;">
+        <div class="related-card" style="background:var(--pastel-card); border-radius:16px; overflow:hidden; border:1.5px solid var(--pastel-border); text-align:left;">
           <a href="deskripsi-produk.html?id=${p.id}" style="text-decoration:none; color:inherit;">
-            <img src="${p.images[0]}" alt="${p.name}" style="width:100%; height:180px; object-fit:cover;">
+            <img src="${p.images[0]}" alt="${p.name}" style="width:100%; height:180px; object-fit:cover; background:#EFEBE9;">
             <div style="padding:15px;">
-              <h4 style="margin:0 0 6px 0; font-family:'Paytone One', sans-serif; color:#33211B;">${p.name}</h4>
-              <p style="margin:0; font-size:0.9rem; font-weight:600; color:#F7941D;">${p.priceRange}</p>
+              <h4 style="margin:0 0 6px 0; font-family:'Paytone One', sans-serif; color:var(--coffee-dark); font-size:1.05rem;">${p.name.split(' — ')[0]}</h4>
+              <p style="margin:0; font-size:0.9rem; font-weight:600; color:var(--coffee-brown);">${p.priceRange}</p>
             </div>
           </a>
         </div>
