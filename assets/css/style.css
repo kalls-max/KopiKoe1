@@ -630,7 +630,7 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
   letter-spacing: 2px;
-  min-width: 100%;
+  white-space: nowrap;
   animation: marqueeRight 12s linear infinite;
 }
 
@@ -818,38 +818,110 @@ body {
 }
 
 .drawer-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto auto;
+  column-gap: 10px;
+  row-gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid #e8e2dc;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  background: #fff;
 }
 
 .drawer-item-name {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
   font-weight: 600;
-  margin: 0 0 4px 0;
+  font-size: 0.95rem;
+  margin: 0;
   color: #33211B;
 }
 
-.drawer-item-meta {
+.drawer-item-variant {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.8rem;
+  color: #888;
+  margin: 0;
+}
+
+.drawer-item-qty {
+  grid-column: 2;
+  grid-row: 3;
+  align-self: end;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 3px 6px;
+}
+
+.qty-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  color: var(--coffee-dark);
+  font-size: 0.9rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.qty-btn:hover {
+  background-color: var(--coffee-brown);
+  color: var(--white);
+}
+
+.qty-value {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 600;
   font-size: 0.85rem;
-  color: #777;
-  margin: 0 0 4px 0;
+  color: var(--coffee-dark);
 }
 
 .drawer-item-price {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
   font-weight: 600;
+  font-size: 0.9rem;
   color: #F7941D;
   margin: 0;
 }
 
 .drawer-item-remove {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  justify-self: end;
   background: none;
   border: none;
-  color: #E22323;
+  color: #9a9a9a;
   cursor: pointer;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.drawer-item-remove:hover {
+  color: #E22323;
+  background: #fdeaea;
 }
 
 .cart-drawer-footer {

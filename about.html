@@ -5,11 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tentang Kami - KopiKOE</title>
   <!-- Memanggil dua CSS secara terpisah -->
-  <link rel="stylesheet" href="assets/css/about.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/about.css?v=1787029332">
+  <link rel="stylesheet" href="assets/css/style.css?v=1787029332">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- SIDE CART DRAWER -->
+  <div id="cart-overlay" class="cart-overlay"></div>
+  <div id="side-cart-drawer" class="side-cart-drawer">
+    <div class="cart-drawer-header">
+      <h3>Keranjang Kamu (<span id="drawer-cart-count">0</span>)</h3>
+      <button id="close-drawer-btn" class="close-drawer-btn">&times;</button>
+    </div>
+    <div class="cart-drawer-body" id="drawer-cart-items">
+      <p style="color:#777; text-align:center; margin-top:20px;">Keranjang masih kosong.</p>
+    </div>
+    <div class="cart-drawer-footer">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="drawer-subtotal">Rp 0</span>
+      </div>
+      <p class="cart-tax-note">Pajak dan ongkos kirim dihitung saat checkout.</p>
+      <button onclick="window.location.href='payment.html'" class="btn-checkout-drawer">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
 
   <section class="about-hero-full">
     <div class="hero-overlay"></div>
@@ -52,10 +74,10 @@
   <div class="marquee-footer">
     <div class="marquee-wrapper">
       <div class="marquee-content">
-        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; </span>
       </div>
       <div class="marquee-content" aria-hidden="true">
-        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; </span>
       </div>
     </div>
   </div>
@@ -101,7 +123,7 @@
     <nav class="bottom-bar-pill" id="bottomBar">
       <div class="bar-section bar-logo">
         <a href="index.html">
-          <img src="Photo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
+          <img src="assets/images/logo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
         </a>
       </div>
       <div class="bar-section bar-menu">
@@ -123,7 +145,7 @@
     </nav>
   </footer>
 
-<script src="script.js"></script>
+<script src="assets/js/script.js?v=1787029332"></script>
 
 </body>
 </html>

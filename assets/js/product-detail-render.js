@@ -34,7 +34,12 @@ function renderProductDetail() {
       if (pageTitle) pageTitle.textContent = `${product.name} | KopiKOE`;
       if (nameElem) nameElem.textContent = product.name;
       if (eyebrowElem) eyebrowElem.textContent = product.eyebrow || 'Specialty Coffee';
-      if (priceElem) priceElem.textContent = product.priceRange || `Rp ${product.price.toLocaleString('id-ID')}`;
+      if (priceElem) {
+        const lowestPrice = product.sizes && product.sizes.length > 0
+          ? Math.min(...product.sizes.map(s => s.price))
+          : product.price;
+        priceElem.textContent = `Rp ${lowestPrice.toLocaleString('id-ID')}`;
+      }
       if (taglineElem) taglineElem.textContent = product.tagline || '';
       if (descElem) descElem.textContent = product.description;
       if (skuElem) skuElem.textContent = product.sku || '-';
@@ -80,14 +85,14 @@ function renderProductDetail() {
       // Render Produk Lainnya
       const relatedWrapper = document.getElementById('relatedProducts');
       if (relatedWrapper) {
-        const related = products.filter(p => p.id !== product.id).slice(0, 3);
+        const related = products.filter(p => p.id !== product.id).slice(0, 4);
         relatedWrapper.innerHTML = related.map(rel => `
           <div class="related-card">
             <a href="deskripsi-produk.html?id=${rel.id}">
               <img src="${rel.images[0]}" alt="${rel.name}">
               <div class="related-body">
                 <h4>${rel.name}</h4>
-                <p class="related-price">${rel.priceRange}</p>
+                <p class="related-price">Rp ${rel.price.toLocaleString('id-ID')}</p>
               </div>
             </a>
           </div>
@@ -96,18 +101,19 @@ function renderProductDetail() {
 
       // Fungsionalitas Tombol Tambah ke Keranjang
       const addBtn = document.getElementById('addToCartBtn');
+      const grindSelect = document.getElementById('grindSize');
       if (addBtn) {
         addBtn.onclick = () => {
           const selectedSizeOption = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex] : null;
           const sizePrice = sizeSelect && sizeSelect.value ? parseInt(sizeSelect.value, 10) : product.price;
-          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? ` (${selectedSizeOption.getAttribute('data-label')})` : '';
-          
-          const itemName = `${product.name}${sizeLabel}`;
+          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? selectedSizeOption.getAttribute('data-label') : '';
+          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : '';
+          const variant = [sizeLabel, grindLabel].filter(Boolean).join(' · ');
 
           if (typeof addToCart === 'function') {
-            addToCart(itemName, sizePrice, 1);
+            addToCart(product.name, sizePrice, 1, variant);
           } else {
-            alert(`Berhasil menambahkan ${itemName} ke keranjang!`);
+            alert(`Berhasil menambahkan ${product.name} ke keranjang!`);
           }
         };
       }
@@ -118,11 +124,12 @@ function renderProductDetail() {
         buyNowBtn.onclick = () => {
           const sizePrice = sizeSelect && sizeSelect.value ? parseInt(sizeSelect.value, 10) : product.price;
           const selectedSizeOption = sizeSelect ? sizeSelect.options[sizeSelect.selectedIndex] : null;
-          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? ` (${selectedSizeOption.getAttribute('data-label')})` : '';
-          const itemName = `${product.name}${sizeLabel}`;
+          const sizeLabel = selectedSizeOption && selectedSizeOption.getAttribute('data-label') ? selectedSizeOption.getAttribute('data-label') : '';
+          const grindLabel = grindSelect && grindSelect.value ? grindSelect.options[grindSelect.selectedIndex].textContent : '';
+          const variant = [sizeLabel, grindLabel].filter(Boolean).join(' · ');
 
           if (typeof addToCart === 'function') {
-            addToCart(itemName, sizePrice, 1);
+            addToCart(product.name, sizePrice, 1, variant);
             window.location.href = 'payment.html';
           }
         };

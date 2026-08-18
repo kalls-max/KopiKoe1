@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title id="pageTitle">Detail Produk | KopiKOE</title>
-  <link rel="stylesheet" href="assets/css/produk-detail.css">
+  <link rel="stylesheet" href="assets/css/produk-detail.css?v=1787029332">
   <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+  <!-- SIDE CART DRAWER -->
   <div id="cart-overlay" class="cart-overlay"></div>
   <div id="side-cart-drawer" class="side-cart-drawer">
     <div class="cart-drawer-header">
@@ -30,31 +31,18 @@
     </div>
   </div>
 
-  <footer class="bottom-bar-wrapper">
-    <nav class="bottom-bar-pill" id="bottomBar">
-      <div class="bar-section bar-logo">
-        <a href="index.html#home">
-          <img src="assets/images/logo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
-        </a>
-      </div>
-      <div class="bar-section bar-menu">
-        <a href="index.html#home">Beranda</a>
-        <a href="index.html#kopinya" class="active">Toko</a>
-        <a href="about.html">Tentangku</a>
-      </div>
-      <div class="bar-section bar-icons">
-        <button class="cart-btn" id="cartBtn" aria-label="Shopping Cart">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
-            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
-          </svg>
-          <span class="cart-badge" id="cartBadge">0</span>
-        </button>
-        <div class="star-object" title="Bintang Interaktif">
-          <span class="star-icon">&#9733;</span>
-        </div>
-      </div>
-    </nav>
-  </footer>
+  <header class="detail-topbar">
+    <a href="shop.html" class="back-to-shop"> < Kembali ke Toko</a>
+    <a href="index.html#home" class="detail-topbar-logo">
+      <img src="assets/images/logo/logo.jpeg" alt="Logo Brand" class="navbar-logo-img">
+    </a>
+    <button class="cart-btn" id="cartBtnTop" aria-label="Shopping Cart">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+      </svg>
+      <span class="cart-badge cart-badge-top" id="cartBadgeTop">0</span>
+    </button>
+  </header>
 
   <main>
     <section class="product-detail">
@@ -69,8 +57,8 @@
       <div class="product-info">
         <span class="product-eyebrow" id="productEyebrow"></span>
         <h2 class="product-name" id="productName"></h2>
-        <p class="product-price" id="productPrice"></p>
         <p class="product-tagline" id="productTagline"></p>
+        <p class="product-price" id="productPrice"></p>
 
         <div class="option-field">
           <label for="ukuranSize">Ukuran</label>
@@ -131,10 +119,10 @@
   <div class="marquee-footer">
     <div class="marquee-wrapper">
       <div class="marquee-content">
-        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; </span>
       </div>
       <div class="marquee-content" aria-hidden="true">
-        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull;&nbsp;</span>
+        <span>KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; KOPIKOE &bull; </span>
       </div>
     </div>
   </div>
@@ -176,7 +164,7 @@
     </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
-  <script src="assets/js/product-detail-render.js"></script>
+  <script src="assets/js/script.js?v=1787029332"></script>
+  <script src="assets/js/product-detail-render.js?v=1787029332"></script>
 </body>
 </html>

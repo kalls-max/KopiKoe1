@@ -50,7 +50,7 @@ function renderShopSection() {
           </div>
           <div class="shop-product-info">
             <h3>${product.name}</h3>
-            <p class="shop-product-price">${product.priceRange}</p>
+            <p class="shop-product-price">Mulai dari Rp${product.price.toLocaleString('id-ID')}</p>
           </div>
         </a>
       `).join('');

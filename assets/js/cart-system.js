@@ -15,13 +15,13 @@ function saveCart(cart) {
 }
 
 function updateCartBadge() {
-  const badge = document.getElementById('cartBadge');
-  if (!badge) return;
+  const badges = document.querySelectorAll('.cart-badge');
+  if (!badges.length) return;
 
   const cart = getCart();
   const totalItems = cart.reduce((sum, item) => sum + (item.qty || item.quantity || 1), 0);
 
-  badge.textContent = totalItems;
+  badges.forEach(badge => { badge.textContent = totalItems; });
 }
 
 function renderCartPage() {
