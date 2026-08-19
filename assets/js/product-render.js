@@ -3,12 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   renderShopSection();
 });
 
-// Fungsi untuk mendeteksi jalur file JSON yang benar secara otomatis
+// buat baca data
 function getJsonPath() {
   return window.location.pathname.includes('/pages/') ? '../data/product.json' : 'data/product.json';
 }
 
-// Render 2 produk Best Seller di Beranda (index.html)
+// buat rekomendasi di index
 function renderKopinyaSection() {
   const container = document.getElementById('kopinyaContainer');
   if (!container) return;
@@ -32,7 +32,7 @@ function renderKopinyaSection() {
     .catch(err => console.error("Gagal memuat produk beranda:", err));
 }
 
-// Render Katalog di Toko (shop.html)
+// buat shop
 function renderShopSection() {
   const gridContainer = document.getElementById('productGrid');
   if (!gridContainer) return;

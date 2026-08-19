@@ -1,13 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
   renderAboutProducts();
-  // renderAboutHero(); // Dimatikan agar background CSS manual tidak tertimpa data JSON
 });
 
 function getJsonPathAbout() {
   return window.location.pathname.includes('/pages/') ? '../data/product.json' : 'data/product.json';
 }
 
-// Fungsi untuk merender list produk unggulan di halaman about
+// render list produk
 function renderAboutProducts() {
   const container = document.getElementById('aboutProductList');
   if (!container) return;
@@ -15,7 +14,7 @@ function renderAboutProducts() {
   fetch(getJsonPathAbout())
     .then(res => res.json())
     .then(products => {
-      const featured = products.slice(0, 3); // Ambil 3 produk pertama
+      const featured = products.slice(0, 3); 
       container.innerHTML = featured.map(p => `
         <div class="related-card" style="background:var(--pastel-card); border-radius:16px; overflow:hidden; border:1.5px solid var(--pastel-border); text-align:left;">
           <a href="deskripsi-produk.html?id=${p.id}" style="text-decoration:none; color:inherit;">

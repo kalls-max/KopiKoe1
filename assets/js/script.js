@@ -1,6 +1,3 @@
-// ==========================================
-// FUNGSI GLOBAL TOAST NOTIFICATION (POPUP)
-// ==========================================
 function showToast(message, type = 'success') {
   let toastContainer = document.querySelector('.toast-container');
   if (!toastContainer) {
@@ -21,9 +18,7 @@ function showToast(message, type = 'success') {
   }, 3000);
 }
 
-// ==========================================
-// FUNGSI GLOBAL CENTER POPUP (PENGGANTI ALERT BROWSER)
-// ==========================================
+//center popup
 function showCenterPopup(title, message, type = 'warning') {
   const overlay = document.createElement('div');
   overlay.className = 'custom-popup-overlay';
@@ -56,7 +51,7 @@ function showCenterPopup(title, message, type = 'warning') {
   });
 }
 
-// ==========================================
+// --------- batas aja
 
 let cart = JSON.parse(localStorage.getItem('kopikoe_cart')) || [];
 
@@ -181,17 +176,15 @@ function renderDrawerCart() {
   }
 }
 
-// Logika Klik Langsung Tutup Dropdown
+// buat dropdown di keranjang
 function toggleVariantPopup(index) {
   const popup = document.getElementById(`variantPopup-${index}`);
   if (!popup) return;
 
   const isOpen = popup.classList.contains('show');
   
-  // Tutup semua dropdown lain terlebih dahulu
   document.querySelectorAll('.variant-dropdown-popup').forEach(p => p.classList.remove('show'));
 
-  // Jika tadinya tertutup, buka. Jika tadinya terbuka, biarkan tertutup.
   if (!isOpen) {
     popup.classList.add('show');
   }
@@ -211,7 +204,6 @@ function selectAndCloseVariant(index, sizeLabel, price) {
   saveCart();
   showToast('Variasi berhasil diubah!', 'success');
   
-  // Paksa tutup dropdown untuk index ini
   const popup = document.getElementById(`variantPopup-${index}`);
   if (popup) {
     popup.classList.remove('show');

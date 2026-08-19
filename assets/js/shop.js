@@ -105,13 +105,11 @@ function initShopControls() {
   const shopDropdown = document.getElementById('shopDropdown');
 
   if (searchInput && searchDropdownGrid && searchOverlay) {
-    // Tampilkan rekomendasi hanya saat input di-klik/fokus pertama kali
     searchInput.addEventListener('focus', () => {
       searchDropdownGrid.style.display = 'block';
       searchOverlay.classList.add('show');
     });
 
-    // Sembunyikan kalau klik di luar area pencarian
     document.addEventListener('click', (e) => {
       const shopSearchContainer = document.querySelector('.shop-search');
       if (shopSearchContainer && !shopSearchContainer.contains(e.target)) {
@@ -121,7 +119,6 @@ function initShopControls() {
     });
   }
 
-  // Event untuk kotak rekomendasi yang di-klik
   dropItems.forEach(item => {
     item.addEventListener('click', () => {
       const keyword = item.getAttribute('data-keyword');
@@ -138,17 +135,14 @@ function initShopControls() {
     });
   });
 
-  // UBAHAN UTAMA: Ganti event 'input' menjadi 'keydown' khusus tombol Enter
   if (searchInput) {
     searchInput.addEventListener('keydown', (e) => {
-      // Cek apakah tombol yang ditekan adalah "Enter"
       if (e.key === 'Enter') {
-        e.preventDefault(); // Mencegah form auto-submit bawaan browser
+        e.preventDefault(); 
         
         const keyword = e.target.value.trim();
-        filterAndRender(keyword); // Jalankan filter pencarian
+        filterAndRender(keyword); 
 
-        // Sembunyikan 4 kotak rekomendasi kopi
         if (searchDropdownGrid) {
           searchDropdownGrid.style.display = 'none';
         }
@@ -156,13 +150,12 @@ function initShopControls() {
           searchOverlay.classList.remove('show');
         }
         
-        // Hapus kursor dari input (supaya keyboard hp otomatis turun)
         searchInput.blur();
       }
     });
   }
 
-  // Fungsi logik filter pencarian
+  // buat nyARI
   function filterAndRender(keyword) {
     const lowerKeyword = keyword.toLowerCase();
 
@@ -188,7 +181,6 @@ function initShopControls() {
     renderProductsGrid(filtered);
   }
 
-  // Logik View Grid (Kotak vs Persegi Panjang)
   if (viewRectBtn && viewSquareBtn && gridContainer) {
     viewRectBtn.addEventListener('click', () => {
       gridContainer.setAttribute('data-view', 'rect');
@@ -203,7 +195,7 @@ function initShopControls() {
     });
   }
 
-  // Logik Hamburger Menu Mobile
+  //HAMBURGER HP
   if (hamburgerBtn && shopDropdown) {
     hamburgerBtn.addEventListener('click', (e) => {
       e.stopPropagation();

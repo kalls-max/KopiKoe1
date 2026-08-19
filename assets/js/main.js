@@ -85,9 +85,7 @@ function initHeroSlider() {
   startAutoplay();
 }
 
-/* --------------------------------------------------------------------------
-   2. FLOATING NAVBAR (SCROLL ANIMATION & MENU)
-   -------------------------------------------------------------------------- */
+/* animasih navbar ilang */
 function initFloatingNavbar() {
   const bottomBarWrapper = document.querySelector('.bottom-bar-wrapper');
   const menuToggle = document.getElementById('menuToggle');
@@ -121,9 +119,7 @@ function initFloatingNavbar() {
   }
 }
 
-/* --------------------------------------------------------------------------
-   3. QUIZ SHUFFLE / CARD DECK ANIMATION
-   -------------------------------------------------------------------------- */
+/* kartu kuuis mundur */
 function initShuffleQuiz() {
   const quizCards = document.querySelectorAll('.quiz-card');
   const optButtons = document.querySelectorAll('.quiz-opt-btn');
@@ -171,9 +167,7 @@ function initShuffleQuiz() {
   });
 }
 
-/* --------------------------------------------------------------------------
-   4. ENSI KOPIDIA (INTERACTIVE BEANS)
-   -------------------------------------------------------------------------- */
+/*ensikopidia ea */
 function initEnsiKopidia() {
   const beanImgs = document.querySelectorAll('.bean-img');
   const titleElem = document.getElementById('ensiBeanTitle');

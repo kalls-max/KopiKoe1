@@ -39,18 +39,18 @@ function renderProductDetail() {
       if (skuElem) skuElem.textContent = product.sku || '-';
       if (catElem) catElem.textContent = product.category || '-';
 
-      // Set Harga Awal (Price Range)
+      //harga awal
       if (priceElem) {
         priceElem.textContent = product.priceRange || `Rp ${product.price.toLocaleString('id-ID')}`;
       }
 
-      // Update Gambar Utama
+      // Update Gambar 
       if (mainImgElem && product.images && product.images.length > 0) {
         mainImgElem.src = product.images[0];
         mainImgElem.alt = product.name;
       }
 
-      // Render Thumbnail Gambar
+      // Render gamabr tamnail
       const thumbRow = document.getElementById('thumbnailRow');
       if (thumbRow && product.images) {
         thumbRow.innerHTML = product.images.map((imgSrc, index) => `
@@ -60,10 +60,10 @@ function renderProductDetail() {
         `).join('');
       }
 
-      // Inisialisasi Fitur Favorit (Bintang)
+      // fitur favorit
       initWishlistFeature(product);
 
-      // Render Option Select Ukuran & Event Ganti Harga
+      //  render ganti harga
       const sizeSelect = document.getElementById('ukuranSize');
       if (sizeSelect && product.sizes) {
         sizeSelect.innerHTML = '<option value="">Pilih ukuran</option>' + 
@@ -81,7 +81,7 @@ function renderProductDetail() {
         });
       }
 
-      // Render Spesifikasi
+      // buat spesifikasi
       const specsList = document.getElementById('productSpecs');
       if (specsList && product.specs) {
         specsList.innerHTML = `
@@ -94,7 +94,7 @@ function renderProductDetail() {
         `;
       }
 
-      // Render Produk Lainnya
+      // Render sisisanya
       const relatedWrapper = document.getElementById('relatedProducts');
       if (relatedWrapper) {
         const related = products.filter(p => p.id !== product.id).slice(0, 4);
@@ -111,7 +111,7 @@ function renderProductDetail() {
         `).join('');
       }
 
-      // Fungsionalitas Tombol Tambah ke Keranjang
+      // namaabh tombol tambah
       const addBtn = document.getElementById('addToCartBtn');
       const grindSelect = document.getElementById('grindSize');
       
@@ -134,7 +134,7 @@ function renderProductDetail() {
         };
       }
 
-      // Fungsionalitas Tombol Beli Sekarang
+      // buat tombol beli sekarang
       const buyNowBtn = document.getElementById('buyNowBtn');
       if (buyNowBtn) {
         buyNowBtn.onclick = () => {
@@ -163,7 +163,7 @@ function renderProductDetail() {
         };
       }
 
-      // Share WhatsApp Button
+      // buat wa
       const shareWaBtn = document.getElementById('shareWaBtn');
       if (shareWaBtn) {
         const textShare = encodeURIComponent(`Cek kopi nikmat ${product.name} di KopiKOE! ${window.location.href}`);
@@ -173,7 +173,7 @@ function renderProductDetail() {
     .catch(err => console.error("Gagal memuat detail produk:", err));
 }
 
-// Logika Favorit (Bintang) Storage
+// logika bintang fav
 function initWishlistFeature(product) {
   const wishlistBtn = document.getElementById('wishlistBtn');
   if (!wishlistBtn) return;

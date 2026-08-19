@@ -37,7 +37,6 @@ function initQuiz() {
           }, 150);
         }
       } else {
-        // Karena kuis ada di page awal (index.html), langsung tampilkan hasil di tempat
         setTimeout(() => {
           showQuizResultPage(); 
         }, 300);
@@ -45,7 +44,7 @@ function initQuiz() {
     });
   });
 
-  // Cek jika ada hasil tersimpan saat halaman dimuat ulang
+  // logika tombol ulang quis
   const resultSection = document.getElementById('resultSection');
   if (resultSection && Object.keys(userAnswers).length > 0) {
     showQuizResultPage();
@@ -195,7 +194,7 @@ window.resetQuiz = function() {
   userAnswers = {};
   currentStep = 1;
 
-  // Sembunyikan hasil kuis kembali jika ada
+  // ngilangin quis sebelumnya
   const resultSection = document.getElementById('resultSection');
   if (resultSection) {
     resultSection.style.display = 'none';

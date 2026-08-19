@@ -22,16 +22,14 @@ body {
   overflow-x: hidden;
 }
 
-/* ============================================================
-   TOP BAR (LAYOUT: KIRI, TENGAH, KANAN)
-   ============================================================ */
+/* TOP BAR (LAYOUT: KIRI, TENGAH, KANAN)*/
 .shop-topbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Membuat brand di kiri, search di tengah, menu di kanan */
+  justify-content: space-between; 
   gap: 20px;
   padding: 18px 6%;
   background: var(--pastel-card);
@@ -60,10 +58,9 @@ body {
   position: relative;
   z-index: 1002;
   transition: all 0.3s ease;
-  margin: 0 auto; /* Menjaga search bar di tengah area */
+  margin: 0 auto; 
 }
 
-/* Efek cahaya pastel (glow) di sekeliling search bar saat diklik/focus */
 .shop-search:focus-within {
   border-color: var(--orange-accent);
   box-shadow: 0 0 0 6px rgba(230, 161, 92, 0.25);
@@ -91,7 +88,6 @@ body {
   color: rgba(121, 85, 72, 0.55);
 }
 
-/* Wrapper untuk tombol Cart dan Hamburger di Pojok Kanan */
 .shop-topbar-right {
   position: relative;
   display: flex;
@@ -100,9 +96,7 @@ body {
   flex-shrink: 0;
 }
 
-/* ============================================================
-   SEARCH OVERLAY REDUP (SMOOTH & NO-BLINK)
-   ============================================================ */
+/* overlay pencarian */
 .search-overlay {
   position: fixed;
   top: 0;
@@ -123,9 +117,7 @@ body {
   pointer-events: auto;
 }
 
-/* ============================================================
-   DROPDOWN SEARCH SUGGESTION (PASTEL STYLE)
-   ============================================================ */
+/* dropdown */
 .search-dropdown-box {
   position: absolute;
   top: calc(100% + 12px);
@@ -181,9 +173,7 @@ body {
   margin-top: 6px;
 }
 
-/* ============================================================
-   CART BUTTON & HAMBURGER
-   ============================================================ */
+/* cart dan hamburger */
 .shop-topbar .cart-btn {
   position: relative;
   background: none;
@@ -292,9 +282,7 @@ body {
   color: var(--coffee-dark);
 }
 
-/* ============================================================
-   PRODUCT GRID & KATALOG
-   ============================================================ */
+/* grid sama katalog */
 .shop-main {
   padding: 40px 6% 100px 6%;
   max-width: 1300px;
@@ -440,9 +428,7 @@ body {
   font-size: 1rem;
 }
 
-/* ============================================================
-   SIDE CART DRAWER
-   ============================================================ */
+/* drawer keranjang */
 .cart-overlay {
   position: fixed;
   top: 0;
@@ -647,9 +633,7 @@ body {
   transition: background 0.2s;
 }
 
-/* ============================================================
-   MARQUEE & FOOTER
-   ============================================================ */
+/* marquee ama footer */
 .marquee-footer {
   background-color: var(--orange-accent);
   color: var(--white);
@@ -788,9 +772,7 @@ body {
   color: #BCAAA4;
 }
 
-/* ============================================================
-   RESPONSIVE MOBILE
-   ============================================================ */
+/* buat hp */
 @media (max-width: 768px) {
   .shop-topbar {
     padding: 12px 5%;

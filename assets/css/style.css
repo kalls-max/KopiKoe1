@@ -33,9 +33,7 @@ body {
   border-radius: 12px;
 }
 
-/* ============================================================
-    PART 1: HERO SLIDER FULLSCREEN IMAGE
-   ============================================================ */
+/* banner slider */
 .hero-slider {
   position: relative;
   width: 100vw;
@@ -233,9 +231,7 @@ body {
   font-weight: 600;
 }
 
-/* ============================================================
-    PART 3: KOPI MOE (QUIZ) & HASIL KUIS
-   ============================================================ */
+/* kuis */
 .section-kopimoe {
   padding: 60px 8%;
   text-align: center;
@@ -425,9 +421,7 @@ body {
   background: rgba(62, 39, 35, 0.08);
 }
 
-/* ============================================================
-    PART 4: SECTION ENSIKOPIDIA
-   ============================================================ */
+/* emsikopidia */
 .section-ensi {
   display: flex;
   padding: 80px 8%;
@@ -546,9 +540,7 @@ body {
   margin-top: 5px;
 }
 
-/* ============================================================
-    PART 5: FLOATING PILL BOTTOM BAR
-   ============================================================ */
+/* pil ngambang */
 .bottom-bar-wrapper {
   position: fixed;
   bottom: 25px;
@@ -693,9 +685,7 @@ body {
   filter: drop-shadow(0 0 5px rgba(231, 161, 92, 0.6));
 }
 
-/* ============================================================
-    PART 6: MARQUEE / RUNNING TEXT
-   ============================================================ */
+/* marquee */
 .marquee-footer {
   background-color: var(--orange-accent);
   color: var(--white);
@@ -728,9 +718,7 @@ body {
   to   { transform: translateX(0%); }
 }
 
-/* ============================================================
-    PART 7: FOOTER UTAMA
-   ============================================================ */
+/* footer */
 .site-footer {
   background-color: var(--coffee-dark);
   color: var(--platinum);
@@ -838,9 +826,7 @@ body {
   color: var(--coffee-brown);
 }
 
-/* ============================================================
-    PART 8: SIDE CART DRAWER (FIXED)
-   ============================================================ */
+/* drawer keranjan */
 .cart-overlay {
   position: fixed;
   top: 0;
@@ -926,9 +912,7 @@ body {
   padding-right: 25px;
 }
 
-/* ============================================================
-    PART 11: EDIT VARIANT POPUP DI KERANJANG (SHOPEE STYLE)
-   ============================================================ */
+/* pop up di keranjang */
 .drawer-item-variant-container {
   position: relative;
   width: fit-content;
@@ -1014,7 +998,7 @@ body {
   color: var(--white);
   border-color: var(--coffee-dark);
 }
-/* ============================================================ */
+/* --------- */
 
 .drawer-item-bottom {
   display: flex;
@@ -1126,9 +1110,7 @@ body {
   background: #d48b48;
 }
 
-/* ============================================================
-    RESPONSIF MOBILE (LAYAR <= 768px)
-   ============================================================ */
+/* buat hp */
 @media (max-width: 768px) {
   .kopinya-container {
     flex-direction: column;
@@ -1242,9 +1224,7 @@ body {
   }
 }
 
-/* ============================================================
-    PART 9: TOAST NOTIFICATION (POPUP INFO)
-   ============================================================ */
+/* pop up info */
 .toast-container {
   position: fixed;
   top: 25px;
@@ -1300,9 +1280,7 @@ body {
   @keyframes fadeUpToast { to { transform: translateY(-150%); opacity: 0; } }
 }
 
-/* ============================================================
-    PART 10: CENTER POPUP MODAL (PENGGANTI ALERT BROWSER)
-   ============================================================ */
+/* popup modal */
 .custom-popup-overlay {
   position: fixed;
   top: 0;
