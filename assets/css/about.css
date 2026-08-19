@@ -26,7 +26,6 @@ html, body {
   width: 100vw !important;
   height: 28vh !important; 
   min-height: 220px;
-  /* GANTI PATH DI BAWAH INI DENGAN LOKASI GAMBAR BANNERMU */
   background-image: url('../images/hero/belakang.jpeg') !important; 
   background-size: cover !important;
   background-position: center !important;
